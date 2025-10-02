@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
+import { Swiper as SwiperType } from "swiper"; // ✅ added type import
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -23,7 +24,7 @@ const steps: Orders[] = [
 ];
 
 // Map titles to icons
-const iconMap: { [key: string]: React.ReactNode } = {
+const iconMap: Record<string, React.ReactNode> = {  // ✅ cleaner typing
   Inquiry: <FaRegEnvelope size={40} className="text-indigo-600 mb-4" />,
   Quotation: <FaFileInvoiceDollar size={40} className="text-green-600 mb-4" />,
   Payment: <FaCreditCard size={40} className="text-yellow-600 mb-4" />,
@@ -34,7 +35,7 @@ const iconMap: { [key: string]: React.ReactNode } = {
 
 
 export default function OrderProcess() {
-    const swiperRef = useRef<any>(null);
+    const swiperRef = useRef<SwiperType | null>(null);
 
     return (
         <div className="w-full py-20 bg-gray-100 relative">

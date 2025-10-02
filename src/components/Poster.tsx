@@ -85,6 +85,8 @@
 "use client";
 
 import React, { useRef } from "react";
+import { Swiper as SwiperType } from "swiper";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -108,7 +110,7 @@ const steps: Poster[] = [
 ];
 
 export default function OrderProcess() {
-  const swiperRef = useRef<any>(null);
+  const swiperRef = useRef<SwiperType | null>(null);
 
   return (
     <div className="w-full py-20 bg-gray-50 relative">
@@ -140,9 +142,11 @@ export default function OrderProcess() {
           {steps.map((step, idx) => (
             <SwiperSlide key={idx}>
               <div className="relative rounded-xl overflow-hidden  sm:h-[34rem] cursor-pointer">
-                <img
+                <Image
                   src={step.image}
                   alt={step.title}
+                  width={800}      // ✅ required by next/image
+                  height={600}     // ✅ required by next/image
                   className="w-full h-full object-cover"
                 />
                 {/* Optional text overlay */}

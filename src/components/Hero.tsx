@@ -1,14 +1,14 @@
 "use client";
-import { FaStar, FaComments, FaLock, FaTruck } from "react-icons/fa";
+// import { FaStar, FaComments, FaLock, FaTruck } from "react-icons/fa";
 import Image from "next/image";
 
 export default function Hero() {
-  const features = [
-    { text: "1010+ Reviews", icon: <FaStar className="text-yellow-500 w-5 h-5" />, rating: "4.7" },
-    { text: "Chat or Email Us", icon: <FaComments className="text-blue-500 w-5 h-5" /> },
-    { text: "Safe and Secure Payment Processing", icon: <FaLock className="text-green-600 w-5 h-5" /> },
-    { text: "Flexible Venue Delivery", icon: <FaTruck className="text-orange-500 w-5 h-5" /> },
-  ];
+  // const features = [
+  //   { text: "1010+ Reviews", icon: <FaStar className="text-yellow-500 w-5 h-5" />, rating: "4.7" },
+  //   { text: "Chat or Email Us", icon: <FaComments className="text-blue-500 w-5 h-5" /> },
+  //   { text: "Safe and Secure Payment Processing", icon: <FaLock className="text-green-600 w-5 h-5" /> },
+  //   { text: "Flexible Venue Delivery", icon: <FaTruck className="text-orange-500 w-5 h-5" /> },
+  // ];
 
   const categories = [
     { name: "PRINT AND MARKETING", img: "/images/Folders.webp" },
