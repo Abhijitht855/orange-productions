@@ -5,7 +5,11 @@ import ProductCategories from "@/components/ProductCategories";
 import SubCat from "@/components/SubCat";
 import SubcategorySection from "@/components/SubcategorySection";
 import Poster from "@/components/Poster";
-import Orders from "@/components/Orders";
+import Testimonials from "@/components/Testimonials";
+import BuyOptions from "@/components/BuyOptions";
+import CompanyIconsMarquee from "@/components/CompanyIconsMarquee";
+import FAQPage from "@/components/FAQPage";
+
 
 
 
@@ -19,7 +23,10 @@ export default function Home() {
       <ProductCategories/>
       <FullscreenVideo/>
       <Poster/>
-      <Orders/>
+      <Testimonials/>
+      <BuyOptions/>
+      <CompanyIconsMarquee/>
+      <FAQPage/>
     </div>
   );
 }
