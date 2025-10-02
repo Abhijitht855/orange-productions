@@ -33,7 +33,7 @@ export default function Hero() {
           </h2>
 
           {/* Right side features */}
-          <div className="flex flex-col space-y-4 w-full md:w-auto">
+          {/* <div className="flex flex-col space-y-4 w-full md:w-auto">
             {features.map((item, index) => (
               <div key={index} className="flex items-center space-x-3">
                 {item.icon}
@@ -45,7 +45,7 @@ export default function Hero() {
                 </span>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </section>
 
