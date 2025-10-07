@@ -11,13 +11,13 @@ export default function Hero() {
   // ];
 
   const categories = [
-    { name: "PRINT AND MARKETING", img: "/images/Folders.webp" },
-    { name: "OFFICE BRANDING", img: "/images/Folders.webp" },
-    { name: "SIGNAGES", img: "/images/Folders.webp" },
-    { name: "FLAGS", img: "/images/Folders.webp" },
-    { name: "BACKDROPS & EXHIBITIONS", img: "/images/Folders.webp" },
-    { name: "CORPORATE GIFTS", img: "/images/Folders.webp" },
-    { name: "VIDEO BROCHURE", img: "/images/Folders.webp" },
+    { name: "PRINT AND MARKETING", img: "/images/bottleNew.png" },
+    { name: "OFFICE BRANDING", img: "/images/bottleNew.png" },
+    { name: "SIGNAGES", img: "/images/bottleNew.png" },
+    { name: "FLAGS", img: "/images/bottleNew.png" },
+    { name: "BACKDROPS & EXHIBITIONS", img: "/images/bottleNew.png" },
+    { name: "CORPORATE GIFTS", img: "/images/bottleNew.png" },
+    { name: "VIDEO BROCHURE", img: "/images/bottleNew.png" },
   ];
 
   return (
@@ -58,7 +58,7 @@ export default function Hero() {
                 key={index}
                 className="flex-shrink-0 flex flex-col items-center cursor-pointer hover:scale-105 transition-transform w-20 sm:w-36 md:w-32 lg:w-32"
               >
-                <div className="w-20 h-20 relative mb-2 md:w-24 md:h-24">
+                <div className="w-20 h-20 relative mb-2 md:w-32 md:h-32">
                   <Image src={cat.img} alt={cat.name} fill className="object-contain" />
                 </div>
                 <span className="text-gray-800 text-xs md:text-sm text-center font-medium">

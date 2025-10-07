@@ -7,7 +7,6 @@ export interface SubItem {
 export interface Product {
   name: string;
   image: string;
-  price?: string;
 }
 
 export interface SubCategory {
@@ -28,66 +27,66 @@ export const dropdownMenus: { [menuName: string]: MenuContent } = {
         items: [
           { name: "Notebook", image: "/images/Folders.webp" },
           { name: "Binding", image: "/images/custom_design_pu_notebook_dubai.webp" },
-          { name: "Business Cards", image: "/images/business-cards.jpg" },
-          { name: "Envelopes", image: "/images/envelopes.jpg" },
-          { name: "Folder" },
-          { name: "Notepad" },
-          { name: "Certificate" },
-          { name: "Handtags" }
+          { name: "Business Cards", image: "/images/cd_printing_dubai.webp" },
+          { name: "Envelopes", image: "/images/Home Wallpaper.webp" },
+          { name: "Folder", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "Notepad", image: "/images/Folders.webp" },
+          { name: "Certificate", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "Handtags", image: "/images/cd_printing_dubai.webp" }
         ],
       },
       "Brochures And Flyers": {
         items: [
-          { name: "Brochure Printing", image: "/images/brochure.jpg" },
-          { name: "Booklets" },
-          { name: "Catalogues" },
-          { name: "Flyers" }
+          { name: "Brochure Printing", image: "/images/Home Wallpaper.webp" },
+          { name: "Booklets", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "Catalogues", image: "/images/Folders.webp" },
+          { name: "Flyers", image: "/images/custom_design_pu_notebook_dubai.webp" }
         ],
       },
       "Seals": {
         items: [
-          { name: "Self Ink Stamps" },
-          { name: "Wax Seal" }
+          { name: "Self Ink Stamps", image: "/images/cd_printing_dubai.webp" },
+          { name: "Wax Seal", image: "/images/Home Wallpaper.webp" }
         ],
       },
       "Voucher Books": {
         items: [
-          { name: "NCR Books" },
-          { name: "Computerized Invoice" }
+          { name: "NCR Books", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "Computerized Invoice", image: "/images/Folders.webp" }
         ],
       },
       "Stickers": {
         items: [
-          { name: "Die Cut Stickers" },
-          { name: "Print & Cut Stickers" },
-          { name: "Transparent Stickers" },
-          { name: "Epoxy Stickers" }
+          { name: "Die Cut Stickers", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "Print & Cut Stickers", image: "/images/cd_printing_dubai.webp" },
+          { name: "Transparent Stickers", image: "/images/Home Wallpaper.webp" },
+          { name: "Epoxy Stickers", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" }
         ],
       },
       "Promotion Items": {
         items: [
-          { name: "Scratch And Win Coupons" },
-          { name: "Tent Card" },
-          { name: "Table Mat" },
-          { name: "Danglers" }
+          { name: "Scratch And Win Coupons", image: "/images/Folders.webp" },
+          { name: "Tent Card", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "Table Mat", image: "/images/cd_printing_dubai.webp" },
+          { name: "Danglers", image: "/images/Home Wallpaper.webp" }
         ],
       },
       "Gift Box": {
         items: [
-          { name: "Corrugated Boxes" },
-          { name: "Wooden Boxes" },
-          { name: "Pouches" },
-          { name: "Tissue Boxes (Leather And Acrylic)" },
-          { name: "Luxury Leather Boxes" },
-          { name: "Corporate Gift Box" },
-          { name: "Custom Gift Boxes" }
+          { name: "Corrugated Boxes", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "Wooden Boxes", image: "/images/Folders.webp" },
+          { name: "Pouches", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "Tissue Boxes (Leather And Acrylic)", image: "/images/cd_printing_dubai.webp" },
+          { name: "Luxury Leather Boxes", image: "/images/Home Wallpaper.webp" },
+          { name: "Corporate Gift Box", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "Custom Gift Boxes", image: "/images/Folders.webp" }
         ],
       }
     },
     popularProducts: [
-      { name: "Premium Business Cards", image: "/images/cd_printing_dubai.webp", price: "$50" },
-      { name: "Tri-Fold Deluxe Brochure", image: "/images/cd_printing_dubai.webp", price: "$120" },
-      { name: "Custom Corrugated Gift Box", image: "/images/cd_printing_dubai.webp", price: "$12" },
+      { name: "Premium Business Cards", image: "/images/cd_printing_dubai.webp" },
+      { name: "Tri-Fold Deluxe Brochure", image: "/images/custom_design_pu_notebook_dubai.webp" },
+      { name: "Custom Corrugated Gift Box", image: "/images/Folders.webp" },
     ],
   },
 
@@ -96,58 +95,58 @@ export const dropdownMenus: { [menuName: string]: MenuContent } = {
       "Frosted Sticker": {
         items: [
           { name: "Reverse Cut Frosted Stickers", image: "/images/custom_design_pu_notebook_dubai.webp" },
-          { name: "Standard Cut Frosted Sticker" },
-          { name: "Printable Frosted Sticker" },
-          { name: "Plain Frosted Sticker" }
+          { name: "Standard Cut Frosted Sticker", image: "/images/cd_printing_dubai.webp" },
+          { name: "Printable Frosted Sticker", image: "/images/Home Wallpaper.webp" },
+          { name: "Plain Frosted Sticker", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" }
         ],
       },
       "Window Branding": {
         items: [
-          { name: "High Quality Vinyl Sticker" },
-          { name: "High Quality Graphics" },
-          { name: "One Way Vision Sticker" },
-          { name: "Window Films" }
+          { name: "High Quality Vinyl Sticker", image: "/images/Folders.webp" },
+          { name: "High Quality Graphics", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "One Way Vision Sticker", image: "/images/cd_printing_dubai.webp" },
+          { name: "Window Films", image: "/images/Home Wallpaper.webp" }
         ],
       },
       "Wall Branding": {
         items: [
-          { name: "Vinyl Lettering" },
-          { name: "Wall Stickers" },
-          { name: "Wall Decal" }
+          { name: "Vinyl Lettering", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "Wall Stickers", image: "/images/Folders.webp" },
+          { name: "Wall Decal", image: "/images/custom_design_pu_notebook_dubai.webp" }
         ],
       },
       "Wall Frames": {
         items: [
-          { name: "Canvas Frames" },
-          { name: "Wooden Frames" },
-          { name: "Acrylic Frame" },
-          { name: "Metal Frame" }
+          { name: "Canvas Frames", image: "/images/cd_printing_dubai.webp" },
+          { name: "Wooden Frames", image: "/images/Home Wallpaper.webp" },
+          { name: "Acrylic Frame", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "Metal Frame", image: "/images/Folders.webp" }
         ],
       },
       "Display Stand": {
         items: [
-          { name: "3D Display Stand" },
-          { name: "Counter Top Stand" }
+          { name: "3D Display Stand", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "Counter Top Stand", image: "/images/cd_printing_dubai.webp" }
         ],
       },
       "Vehicle Branding": {
         items: [
-          { name: "Car Branding" },
-          { name: "Truck Branding" }
+          { name: "Car Branding", image: "/images/Home Wallpaper.webp" },
+          { name: "Truck Branding", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" }
         ],
       },
       "Magnet Sheet": {
         items: [
-          { name: "Car Magnet" },
-          { name: "Fridge Magnet" },
-          { name: "Wall Magnet" }
+          { name: "Car Magnet", image: "/images/Folders.webp" },
+          { name: "Fridge Magnet", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "Wall Magnet", image: "/images/cd_printing_dubai.webp" }
         ],
       }
     },
     popularProducts: [
-      { name: "Premium One Way Vision", image: "/images/oneway-vision.png", price: "$60/sqm" },
-      { name: "Reverse Cut Frosted Vinyl", image: "/images/frosted-reverse.png", price: "$40/sqm" },
-      { name: "Gallery Wrap Canvas Print", image: "/images/canvas-print.png", price: "$150" },
+      { name: "Premium One Way Vision", image: "/images/Home Wallpaper.webp" },
+      { name: "Reverse Cut Frosted Vinyl", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+      { name: "Gallery Wrap Canvas Print", image: "/images/Folders.webp" },
     ],
   },
 
@@ -155,66 +154,66 @@ export const dropdownMenus: { [menuName: string]: MenuContent } = {
     categories: {
       "Sign Boards": {
         items: [
-          { name: "3D Signage" },
-          { name: "Backlit Signage" },
-          { name: "Flex Signage" },
-          { name: "Frontlit Signage" },
-          { name: "Push Through Letter Signage" },
-          { name: "Neon Signage" }
+          { name: "3D Signage", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "Backlit Signage", image: "/images/cd_printing_dubai.webp" },
+          { name: "Flex Signage", image: "/images/Home Wallpaper.webp" },
+          { name: "Frontlit Signage", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "Push Through Letter Signage", image: "/images/Folders.webp" },
+          { name: "Neon Signage", image: "/images/custom_design_pu_notebook_dubai.webp" }
         ],
       },
       "Name Plates": {
         items: [
-          { name: "Metal Name Plates" },
-          { name: "Wooden Name Plates" },
-          { name: "Table Top Signage" },
-          { name: "Acrylic Signage" }
+          { name: "Metal Name Plates", image: "/images/cd_printing_dubai.webp" },
+          { name: "Wooden Name Plates", image: "/images/Home Wallpaper.webp" },
+          { name: "Table Top Signage", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "Acrylic Signage", image: "/images/Folders.webp" }
         ],
       },
       "Light Box": {
         items: [
-          { name: "Fabric Light Box" },
-          { name: "Poster Light Box" },
-          { name: "Acrylic Signage Board" },
-          { name: "Flex Face Sign (Light Box)" }
+          { name: "Fabric Light Box", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "Poster Light Box", image: "/images/cd_printing_dubai.webp" },
+          { name: "Acrylic Signage Board", image: "/images/Home Wallpaper.webp" },
+          { name: "Flex Face Sign (Light Box)", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" }
         ],
       },
       "Self Standing Letters": {
         items: [
-          { name: "Metal Letters" },
-          { name: "Wooden Letters" },
-          { name: "Acrylic Letters" },
-          { name: "Forex Letters" },
-          { name: "Foamboard Letters" }
+          { name: "Metal Letters", image: "/images/Folders.webp" },
+          { name: "Wooden Letters", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "Acrylic Letters", image: "/images/cd_printing_dubai.webp" },
+          { name: "Forex Letters", image: "/images/Home Wallpaper.webp" },
+          { name: "Foamboard Letters", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" }
         ],
       },
       "Direction Signage": {
         items: [
-          { name: "Wall Mounted Signage" },
-          { name: "Hanging Signage" },
-          { name: "Direction Signage" },
-          { name: "Self Standing Signage" }
+          { name: "Wall Mounted Signage", image: "/images/Folders.webp" },
+          { name: "Hanging Signage", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "Direction Signage", image: "/images/cd_printing_dubai.webp" },
+          { name: "Self Standing Signage", image: "/images/Home Wallpaper.webp" }
         ],
       },
       "Labels": {
         items: [
-          { name: "PVC/Acrylic Label" },
-          { name: "Metal Label" },
-          { name: "Wooden Label" },
-          { name: "Acrylic Label" }
+          { name: "PVC/Acrylic Label", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "Metal Label", image: "/images/Folders.webp" },
+          { name: "Wooden Label", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "Acrylic Label", image: "/images/cd_printing_dubai.webp" }
         ],
       },
       "Safety Signage": {
         items: [
-          { name: "Floor Sign/Signage" },
-          { name: "Self-Standing Sign" }
+          { name: "Floor Sign/Signage", image: "/images/Home Wallpaper.webp" },
+          { name: "Self-Standing Sign", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" }
         ],
       }
     },
     popularProducts: [
-      { name: "LED Backlit 3D Acrylic Sign", image: "/images/sign-3d-backlit.png", price: "$400/sqm" },
-      { name: "Custom LED Neon Sign", image: "/images/sign-neon.png", price: "$350" },
-      { name: "Brushed Steel Engraved Name Plate", image: "/images/name-plate-steel.png", price: "$90" },
+      { name: "LED Backlit 3D Acrylic Sign", image: "/images/Folders.webp" },
+      { name: "Custom LED Neon Sign", image: "/images/custom_design_pu_notebook_dubai.webp" },
+      { name: "Brushed Steel Engraved Name Plate", image: "/images/cd_printing_dubai.webp" },
     ],
   },
 
@@ -222,59 +221,59 @@ export const dropdownMenus: { [menuName: string]: MenuContent } = {
     categories: {
       "Branding Flags": {
         items: [
-          { name: "Teardrop Flag" },
-          { name: "Curved Top Flag" },
-          { name: "L-Shape Flag" },
-          { name: "Advertising Flag" },
-          { name: "Telescopic Flag" }
+          { name: "Teardrop Flag", image: "/images/Home Wallpaper.webp" },
+          { name: "Curved Top Flag", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "L-Shape Flag", image: "/images/Folders.webp" },
+          { name: "Advertising Flag", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "Telescopic Flag", image: "/images/cd_printing_dubai.webp" }
         ],
       },
       "Flag Base": {
         items: [
-          { name: "Water Base" },
-          { name: "Cross Base" },
-          { name: "Concrete Base" },
-          { name: "Plastic Coated Concrete Base" }
+          { name: "Water Base", image: "/images/Home Wallpaper.webp" },
+          { name: "Cross Base", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "Concrete Base", image: "/images/Folders.webp" },
+          { name: "Plastic Coated Concrete Base", image: "/images/custom_design_pu_notebook_dubai.webp" }
         ],
       },
       "Office Flags": {
         items: [
-          { name: "Table Flag" },
-          { name: "Table Flags - Royal" },
-          { name: "Conference Flag" },
-          { name: "Conference Hanging Flag" }
+          { name: "Table Flag", image: "/images/cd_printing_dubai.webp" },
+          { name: "Table Flags - Royal", image: "/images/Home Wallpaper.webp" },
+          { name: "Conference Flag", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "Conference Hanging Flag", image: "/images/Folders.webp" }
         ],
       },
       "Outdoor Flags": {
         items: [
-          { name: "Stadium Flag" },
-          { name: "Wall Mounted Flags" },
-          { name: "Hosting Flag" }
+          { name: "Stadium Flag", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "Wall Mounted Flags", image: "/images/cd_printing_dubai.webp" },
+          { name: "Hosting Flag", image: "/images/Home Wallpaper.webp" }
         ],
       },
       "Event Gear": {
         items: [
-          { name: "Pole Flag" },
-          { name: "Hand Flag" },
-          { name: "Back Pack Flag" },
-          { name: "Finish Line Flag" },
-          { name: "Fan Scarf Flag" }
+          { name: "Pole Flag", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "Hand Flag", image: "/images/Folders.webp" },
+          { name: "Back Pack Flag", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "Finish Line Flag", image: "/images/cd_printing_dubai.webp" },
+          { name: "Fan Scarf Flag", image: "/images/Home Wallpaper.webp" }
         ],
       },
       "Decorative Flags": {
         items: [
-          { name: "Desert Car Flag" },
-          { name: "Toothpick Flags" },
-          { name: "Bunting Flags" },
-          { name: "Dashboard Flag" },
-          { name: "Pennant Flags" }
+          { name: "Desert Car Flag", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "Toothpick Flags", image: "/images/Folders.webp" },
+          { name: "Bunting Flags", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "Dashboard Flag", image: "/images/cd_printing_dubai.webp" },
+          { name: "Pennant Flags", image: "/images/Home Wallpaper.webp" }
         ],
       }
     },
     popularProducts: [
-      { name: "Medium Teardrop Flag Kit", image: "/images/flag-teardrop.png", price: "$120" },
-      { name: "Heavy Fillable Water Base", image: "/images/base-water.png", price: "$45" },
-      { name: "Backpack Banner System", image: "/images/flag-backpack.png", price: "$85" },
+      { name: "Medium Teardrop Flag Kit", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+      { name: "Heavy Fillable Water Base", image: "/images/Folders.webp" },
+      { name: "Backpack Banner System", image: "/images/custom_design_pu_notebook_dubai.webp" },
     ],
   },
 
@@ -282,60 +281,60 @@ export const dropdownMenus: { [menuName: string]: MenuContent } = {
     categories: {
       "Standees": {
         items: [
-          { name: "Rollup Stand" },
-          { name: "X Banner Stand" },
-          { name: "Broad Base Roll Up Stand" },
-          { name: "Classic Backlit Standee" },
-          { name: "Barricade" },
-          { name: "Cut Out Standee" },
-          { name: "Toblerone Frame" },
-          { name: "Popout Banner/Spring A Board" }
+          { name: "Rollup Stand", image: "/images/cd_printing_dubai.webp" },
+          { name: "X Banner Stand", image: "/images/Home Wallpaper.webp" },
+          { name: "Broad Base Roll Up Stand", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "Classic Backlit Standee", image: "/images/Folders.webp" },
+          { name: "Barricade", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "Cut Out Standee", image: "/images/cd_printing_dubai.webp" },
+          { name: "Toblerone Frame", image: "/images/Home Wallpaper.webp" },
+          { name: "Popout Banner/Spring A Board", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" }
         ],
       },
       "Backdrops": {
         items: [
-          { name: "Adjustable Backdrop Stands" },
-          { name: "Tension Fabric Stand Straight" },
-          { name: "Tension Fabric Stand Curved" },
-          { name: "Straight Pop Up" },
-          { name: "Fabric Straight" },
-          { name: "Wooden Backdrop" },
-          { name: "Pop Up" },
-          { name: "Photo Booth" },
-          { name: "LED Screen" }
+          { name: "Adjustable Backdrop Stands", image: "/images/Folders.webp" },
+          { name: "Tension Fabric Stand Straight", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "Tension Fabric Stand Curved", image: "/images/cd_printing_dubai.webp" },
+          { name: "Straight Pop Up", image: "/images/Home Wallpaper.webp" },
+          { name: "Fabric Straight", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "Wooden Backdrop", image: "/images/Folders.webp" },
+          { name: "Pop Up", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "Photo Booth", image: "/images/cd_printing_dubai.webp" },
+          { name: "LED Screen", image: "/images/Home Wallpaper.webp" }
         ],
       },
       "Exhibitions & Event": {
         items: [
-          { name: "Outdoor Umbrella" },
-          { name: "Tent/Gazebo" },
-          { name: "Promotional Table" },
-          { name: "Table Cover/Table Cloth" },
-          { name: "Exhibition Counter" }
+          { name: "Outdoor Umbrella", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "Tent/Gazebo", image: "/images/Folders.webp" },
+          { name: "Promotional Table", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "Table Cover/Table Cloth", image: "/images/cd_printing_dubai.webp" },
+          { name: "Exhibition Counter", image: "/images/Home Wallpaper.webp" }
         ],
       },
       "Event Booth": {
         items: [
-          { name: "Panel/Seamless Branding" },
-          { name: "Modular Backlit Booth" },
-          { name: "Island Backlit Shell Scheme" }
+          { name: "Panel/Seamless Branding", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "Modular Backlit Booth", image: "/images/Folders.webp" },
+          { name: "Island Backlit Shell Scheme", image: "/images/custom_design_pu_notebook_dubai.webp" }
         ],
       },
       "Event Props": {
         items: [
-          { name: "Social Media Frames" },
-          { name: "Hashtags" },
-          { name: "Giant Cheques" },
-          { name: "Party Props" },
-          { name: "Easel Stand" },
-          { name: "Metal Brochure Stand" }
+          { name: "Social Media Frames", image: "/images/cd_printing_dubai.webp" },
+          { name: "Hashtags", image: "/images/Home Wallpaper.webp" },
+          { name: "Giant Cheques", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "Party Props", image: "/images/Folders.webp" },
+          { name: "Easel Stand", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "Metal Brochure Stand", image: "/images/cd_printing_dubai.webp" }
         ],
       }
     },
     popularProducts: [
-      { name: "8ft x 8ft Tension Fabric Backdrop", image: "/images/backdrop-fabric.png", price: "$450" },
-      { name: "Premium Broad Base Roll-Up Banner", image: "/images/rollup-premium.png", price: "$150" },
-      { name: "Custom Branded Gazebo Tent 3x3m", image: "/images/event-tent.png", price: "$650" },
+      { name: "8ft x 8ft Tension Fabric Backdrop", image: "/images/Home Wallpaper.webp" },
+      { name: "Premium Broad Base Roll-Up Banner", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+      { name: "Custom Branded Gazebo Tent 3x3m", image: "/images/Folders.webp" },
     ],
   },
 
@@ -343,65 +342,65 @@ export const dropdownMenus: { [menuName: string]: MenuContent } = {
     categories: {
       "Technology": {
         items: [
-          { name: "Headphones & Speaker" },
-          { name: "Powerbanks" },
-          { name: "Wireless Charger" },
-          { name: "USB Flash Drive" },
-          { name: "Mousepads" }
+          { name: "Headphones & Speaker", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "Powerbanks", image: "/images/cd_printing_dubai.webp" },
+          { name: "Wireless Charger", image: "/images/Home Wallpaper.webp" },
+          { name: "USB Flash Drive", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "Mousepads", image: "/images/Folders.webp" }
         ],
       },
       "Drinkware": {
         items: [
-          { name: "Tumblers" },
-          { name: "Ceramic Mug" },
-          { name: "Water Bottle & Infuser" },
-          { name: "Travel Mug" }
+          { name: "Tumblers", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "Ceramic Mug", image: "/images/cd_printing_dubai.webp" },
+          { name: "Water Bottle & Infuser", image: "/images/Home Wallpaper.webp" },
+          { name: "Travel Mug", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" }
         ],
       },
       "Shopping & Promotion": {
         items: [
-          { name: "Jute Bags" },
-          { name: "Cotton Bags" },
-          { name: "Non Woven Bags" },
-          { name: "Customised Shopping Bags" },
-          { name: "String Bag" },
-          { name: "Backpacks" },
-          { name: "Laptop Bags" }
+          { name: "Jute Bags", image: "/images/Folders.webp" },
+          { name: "Cotton Bags", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "Non Woven Bags", image: "/images/cd_printing_dubai.webp" },
+          { name: "Customised Shopping Bags", image: "/images/Home Wallpaper.webp" },
+          { name: "String Bag", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "Backpacks", image: "/images/Folders.webp" },
+          { name: "Laptop Bags", image: "/images/custom_design_pu_notebook_dubai.webp" }
         ],
       },
       "Stationery Items": {
         items: [
-          { name: "Keychain" },
-          { name: "Clock" },
-          { name: "Card Holder" },
-          { name: "Mementos & Awards" },
-          { name: "Metal Pen" },
-          { name: "Plastic Pen" },
-          { name: "Name Badge" },
-          { name: "Notebook" },
-          { name: "Ecofriendly Items" },
-          { name: "Organizer" }
+          { name: "Keychain", image: "/images/cd_printing_dubai.webp" },
+          { name: "Clock", image: "/images/Home Wallpaper.webp" },
+          { name: "Card Holder", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "Mementos & Awards", image: "/images/Folders.webp" },
+          { name: "Metal Pen", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "Plastic Pen", image: "/images/cd_printing_dubai.webp" },
+          { name: "Name Badge", image: "/images/Home Wallpaper.webp" },
+          { name: "Notebook", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "Ecofriendly Items", image: "/images/Folders.webp" },
+          { name: "Organizer", image: "/images/custom_design_pu_notebook_dubai.webp" }
         ],
       },
       "Apparel & Show Items": {
         items: [
-          { name: "Jersey" },
-          { name: "Caps" },
-          { name: "Safety Vest" },
-          { name: "Wristbands" },
-          { name: "Lanyards" },
-          { name: "ID Card And Badge" },
-          { name: "Fridge Magnet" },
-          { name: "Hoodie" },
-          { name: "Anti Stress Ball" },
-          { name: "Ribbons" }
+          { name: "Jersey", image: "/images/cd_printing_dubai.webp" },
+          { name: "Caps", image: "/images/Home Wallpaper.webp" },
+          { name: "Safety Vest", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "Wristbands", image: "/images/Folders.webp" },
+          { name: "Lanyards", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "ID Card And Badge", image: "/images/cd_printing_dubai.webp" },
+          { name: "Fridge Magnet", image: "/images/Home Wallpaper.webp" },
+          { name: "Hoodie", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "Anti Stress Ball", image: "/images/Folders.webp" },
+          { name: "Ribbons", image: "/images/custom_design_pu_notebook_dubai.webp" }
         ],
       }
     },
     popularProducts: [
-      { name: "Custom Logo Power Bank (10000mAh)", image: "/images/gift-powerbank.png", price: "$25" },
-      { name: "Engraved Insulated Tumbler", image: "/images/gift-tumbler.png", price: "$15" },
-      { name: "Laser Engraved Metal Pen", image: "/images/gift-metal-pen.png", price: "$10" },
+      { name: "Custom Logo Power Bank (10000mAh)", image: "/images/cd_printing_dubai.webp" },
+      { name: "Engraved Insulated Tumbler", image: "/images/Home Wallpaper.webp" },
+      { name: "Laser Engraved Metal Pen", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
     ],
   },
 
@@ -409,36 +408,39 @@ export const dropdownMenus: { [menuName: string]: MenuContent } = {
     categories: {
       "Video Brochure Card": {
         items: [
-          { name: "5 Inch Video Brochure Card" },
-          { name: "7 Inch Video Brochure Card" },
-          { name: "10 Inch Video Brochure Card" },
-          { name: "Customised Size" }
+          { name: "5 Inch Video Brochure Card", image: "/images/Folders.webp" },
+          { name: "7 Inch Video Brochure Card", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "10 Inch Video Brochure Card", image: "/images/cd_printing_dubai.webp" },
+          { name: "Customised Size", image: "/images/Home Wallpaper.webp" }
         ],
       },
       "Video Brochure Box": {
         items: [
-          { name: "5 Inch Video Brochure Box" },
-          { name: "7 Inch Video Brochure Box" },
-          { name: "10 Inch Video Brochure Box" },
-          { name: "Customised Size" }
+          { name: "5 Inch Video Brochure Box", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "7 Inch Video Brochure Box", image: "/images/Folders.webp" },
+          { name: "10 Inch Video Brochure Box", image: "/images/custom_design_pu_notebook_dubai.webp" },
+          { name: "Customised Size", image: "/images/cd_printing_dubai.webp" }
         ],
       },
       "Video Brochure Screen": {
         items: [
-          { name: "5 Inch Screen" },
-          { name: "7 Inch Screen" },
-          { name: "10 Inch Screen" },
-          { name: "Customised" }
+          { name: "5 Inch Screen", image: "/images/Home Wallpaper.webp" },
+          { name: "7 Inch Screen", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+          { name: "10 Inch Screen", image: "/images/Folders.webp" },
+          { name: "Customised", image: "/images/custom_design_pu_notebook_dubai.webp" }
         ],
       },
       "Video Brochure Folder": {
-        items: []
+        items: [
+          { name: "A4 Video Folder", image: "/images/cd_printing_dubai.webp" },
+          { name: "Custom Video Folder", image: "/images/Home Wallpaper.webp" }
+        ]
       }
     },
     popularProducts: [
-      { name: "7-Inch HD Video Card", image: "/images/video-brochure-7in.png", price: "$45" },
-      { name: "Luxury Video Gift Box (7 Inch)", image: "/images/video-box-luxury.png", price: "$65" },
-      { name: "A4 Video Folder with Pockets", image: "/images/video-folder-a4.png", price: "$50" },
+      { name: "7-Inch HD Video Card", image: "/images/photo-1601924994987-69e26d50dc26.jpeg" },
+      { name: "Luxury Video Gift Box (7 Inch)", image: "/images/Folders.webp" },
+      { name: "A4 Video Folder with Pockets", image: "/images/custom_design_pu_notebook_dubai.webp" },
     ],
   }
 };
