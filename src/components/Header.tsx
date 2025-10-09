@@ -1258,6 +1258,7 @@ import { FiSearch, FiChevronDown, FiX, FiMenu, FiChevronRight } from "react-icon
 import { dropdownMenus, SubItem } from "./DropdownMenuData";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from 'next/link';
+import { slugify } from "@/utils/slugify";
 
 const menuItems = [
   { name: "PRINT AND MARKETING", hasDropdown: true },
@@ -1405,11 +1406,10 @@ export default function Header() {
                     {menuItems.map((item) => (
                       <motion.div
                         key={item.name}
-                        className={`cursor-pointer p-1 rounded-lg transition-colors duration-300 ${
-                          selectedMobileCategory === item.name
-                            ? 'bg-white text-[#E7671E] border border-[#E7671E]'
-                            : 'text-gray-600 hover:text-[#E7671E]'
-                        }`}
+                        className={`cursor-pointer p-1 rounded-lg transition-colors duration-300 ${selectedMobileCategory === item.name
+                          ? 'bg-white text-[#E7671E] border border-[#E7671E]'
+                          : 'text-gray-600 hover:text-[#E7671E]'
+                          }`}
                         onClick={() => selectMobileCategory(item.name)}
                         variants={{ hidden: { opacity: 0, y: -10 }, visible: { opacity: 1, y: 0 } }}
                         transition={{ duration: 0.3 }}
@@ -1528,7 +1528,9 @@ export default function Header() {
       <div className="relative">
         {/* Logo + Search Section */}
         <div className="hidden lg:flex items-center justify-between px-6 xl:px-32 py-4">
-          <Image src="/images/orange-productions.svg" alt="Logo" width={120} height={42} />
+          <Link href="/">
+            <Image src="/images/orange-productions.svg" alt="Logo" width={120} height={42} />
+          </Link>
           <div className="flex items-center gap-4 ml-auto">
             <div className="flex items-center gap-2">
               <div className={`overflow-hidden transition-all duration-500 ease-out ${isSearchOpen ? 'w-96 opacity-100' : 'w-0 opacity-0'}`}>
@@ -1605,7 +1607,7 @@ export default function Header() {
                           variants={{ hidden: { opacity: 0, y: -10 }, visible: { opacity: 1, y: 0 } }}
                           transition={{ duration: 0.3 }}
                         >
-                          <Link href={`/category/${encodeURIComponent(category)}`} onClick={handleCategoryClick}>
+                          <Link href={`/category/${encodeURIComponent(activeDropdown)}/#${slugify(category)}`} onClick={handleCategoryClick}>
                             <div className="flex items-center font-bold text-gray-800 mb-3 text-sm border-b border-gray-300 pb-1 hover:text-[#E7671E] transition-colors">
                               <span className="mr-1">{category}</span>
                               <FiChevronRight className="w-4 h-4" />
