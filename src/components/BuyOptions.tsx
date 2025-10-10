@@ -1,6 +1,13 @@
 "use client";
 
-import { FaQuestionCircle, FaFileInvoice, FaMoneyBillWave, FaDraftingCompass, FaIndustry, FaTruck } from "react-icons/fa";
+import {
+  FaQuestionCircle,
+  FaFileInvoice,
+  FaMoneyBillWave,
+  FaDraftingCompass,
+  FaIndustry,
+  FaTruck,
+} from "react-icons/fa";
 
 const BuyOptions = () => {
   const steps = [
@@ -37,14 +44,14 @@ const BuyOptions = () => {
   ];
 
   return (
-    <div className="bg-gray-100 py-10 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="py-10 px-4 sm:px-6 lg:px-6">
+      <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
         {steps.map((step, idx) => (
           <div
             key={idx}
-            className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+            className="text-center p-6 rounded-lg"
           >
-            <div className="mx-auto h-12 w-12 text-gray-500 mb-4 flex items-center justify-center text-3xl">
+            <div className="mx-auto h-16 w-16 text-[#7D7D7E] mb-5 flex items-center justify-center text-5xl">
               {step.icon}
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">

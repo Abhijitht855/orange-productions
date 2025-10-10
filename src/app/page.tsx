@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import PosterCarousel from "@/components/PosterCarousel";
 import ProductCategories from "@/components/ProductCategories";
 import SubCat from "@/components/SubCat";
-import SubcategorySection from "@/components/SubcategorySection";
+import SubcategoryCard from "@/components/SubcategoryCard";
 import Poster from "@/components/Poster";
 import Testimonials from "@/components/Testimonials";
 import BuyOptions from "@/components/BuyOptions";
@@ -18,7 +18,7 @@ export default function Home() {
     <div className="">
       <PosterCarousel/>
       <Hero/>
-      <SubcategorySection/>
+      <SubcategoryCard/>
       <SubCat/>
       <ProductCategories/>
       <FullscreenVideo/>
