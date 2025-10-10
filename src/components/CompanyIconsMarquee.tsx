@@ -88,11 +88,11 @@ const CompanyIconsMarquee = () => {
   ];
 
   return (
-    <div className="bg-gray-950/90 py-12">
+    <div className="bg-gray-100 py-12">
       <div className="mx-auto text-center">
-        <h2 className="text-3xl font-semibold text-white mb-10">
+        {/* <h2 className="text-3xl font-semibold text-white mb-10">
           Slider & Default Color
-        </h2>
+        </h2> */}
 
         <div>
           <Swiper
