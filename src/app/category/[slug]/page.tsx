@@ -50,11 +50,17 @@ import React, { useEffect } from "react";
 import { useParams } from "next/navigation";
 import { dropdownMenus } from "@/components/DropdownMenuData";
 import SubcategorySectionNew from "@/components/SubcategorySectionNew";
+import { slugify } from "@/utils/slugify";
+
 
 export default function CategoryPage() {
   const params = useParams();
   const slug = decodeURIComponent(params.slug as string);
-  const categoryData = dropdownMenus[slug];
+  const categoryEntry = Object.entries(dropdownMenus).find(
+  ([key]) => slugify(key) === slug
+);
+const categoryData = categoryEntry ? categoryEntry[1] : null;
+
 
   useEffect(() => {
     const handleHashChange = () => {

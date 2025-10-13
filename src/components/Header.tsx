@@ -73,7 +73,7 @@
 //       {/* Mobile Header Wrapper */}
 //       <div className="block lg:hidden fixed top-0 left-0 w-full bg-white z-50">
 //         <div className="flex items-center justify-between px-4 py-3">
-//           <Image src="/images/orange-productions.svg" alt="Logo" width={100} height={35} />
+//           <Image src="/images/logo.svg" alt="Logo" width={100} height={35} />
 //           <div className="flex items-center gap-2">
 //             <button
 //               onClick={toggleSearch}
@@ -224,7 +224,7 @@
 //       <div className="relative">
 //         {/* Logo + Search Section */}
 //         <div className="hidden lg:flex items-center justify-between px-6 xl:px-32 py-4">
-//           <Image src="/images/orange-productions.svg" alt="Logo" width={120} height={42} />
+//           <Image src="/images/logo.svg" alt="Logo" width={120} height={42} />
 //           <div className="flex items-center gap-4 ml-auto">
 //             <div className="flex items-center gap-2">
 //               <div
@@ -439,7 +439,7 @@
 //       {/* Mobile Header Wrapper */}
 //       <div className="block lg:hidden fixed top-0 left-0 w-full bg-white z-50">
 //         <div className="flex items-center justify-between px-4 py-3">
-//           <Image src="/images/orange-productions.svg" alt="Logo" width={100} height={35} />
+//           <Image src="/images/logo.svg" alt="Logo" width={100} height={35} />
 //           <div className="flex items-center gap-2">
 //             <button
 //               onClick={toggleSearch}
@@ -590,7 +590,7 @@
 //       <div className="relative">
 //         {/* Logo + Search Section */}
 //         <div className="hidden lg:flex items-center justify-between px-6 xl:px-32 py-4">
-//           <Image src="/images/orange-productions.svg" alt="Logo" width={120} height={42} />
+//           <Image src="/images/logo.svg" alt="Logo" width={120} height={42} />
 //           <div className="flex items-center gap-4 ml-auto">
 //             <div className="flex items-center gap-2">
 //               <div
@@ -863,7 +863,7 @@
 //       <div className="block lg:hidden fixed top-0 left-0 w-full bg-white z-50">
 //         <div className="flex items-center justify-between px-4 py-3">
 //           <div>
-//             <Image src="/images/orange-productions.svg" alt="Logo" width={100} height={35} />
+//             <Image src="/images/logo.svg" alt="Logo" width={100} height={35} />
 //           </div>
 //           <div className="flex items-center gap-2">
 //             <button
@@ -1066,7 +1066,7 @@
 //       <div className="relative">
 //         {/* Logo + Search Section */}
 //         <div className="hidden lg:flex items-center justify-between px-6 xl:px-32 py-4">
-//           <Image src="/images/orange-productions.svg" alt="Logo" width={120} height={42} />
+//           <Image src="/images/logo.svg" alt="Logo" width={120} height={42} />
 //           <div className="flex items-center gap-4 ml-auto">
 //             <div className="flex items-center gap-2">
 //               <div className={`overflow-hidden transition-all duration-500 ease-out ${isSearchOpen ? 'w-96 opacity-100' : 'w-0 opacity-0'}`}>
@@ -1329,7 +1329,7 @@ export default function Header() {
       <div className="block lg:hidden fixed top-0 left-0 w-full bg-white z-50">
         <div className="flex items-center justify-between px-4 py-3">
           <div>
-            <Image src="/images/orange-productions.svg" alt="Logo" width={100} height={35} />
+            <Image src="/images/logo.svg" alt="Logo" width={100} height={35} />
           </div>
           <div className="flex items-center gap-2">
             <button
@@ -1430,9 +1430,17 @@ export default function Header() {
                         exit={{ opacity: 0, x: -20 }}
                         transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                       >
-                        <h3 className="text-lg font-bold text-gray-900 mb-6 border-b border-gray-200 pb-2">
-                          {selectedMobileCategory}
-                        </h3>
+                        <Link
+                          href={`/category/${slugify(selectedMobileCategory!)}`}
+                          onClick={closeMobileMenu}
+                        >
+                          <h3 className="flex items-center justify-between text-base font-bold text-gray-900 mb-6 border-b border-gray-200 pb-2 hover:text-[#E7671E] cursor-pointer transition-colors">
+                            <span>{selectedMobileCategory}</span>
+                            <FiChevronRight className="w-4 h-4" />
+                          </h3>
+                        </Link>
+
+
                         {dropdownMenus[selectedMobileCategory]?.popularProducts && (
                           <motion.div
                             className="mb-8"
@@ -1472,12 +1480,16 @@ export default function Header() {
                               variants={{ hidden: { opacity: 0, y: -10 }, visible: { opacity: 1, y: 0 } }}
                               transition={{ duration: 0.3 }}
                             >
-                              <Link href={`/category/${encodeURIComponent(category)}`} onClick={handleCategoryClick}>
-                                <div className="flex items-center font-semibold text-gray-800 text-sm uppercase tracking-wide mb-3 hover:text-[#E7671E] transition-colors">
-                                  {category}
+                              <Link
+                                href={`/category/${slugify(selectedMobileCategory!)}#${slugify(category)}`}
+                                onClick={closeMobileMenu}
+                              >
+                                <div className="flex items-center font-bold text-gray-800 mb-3 text-sm border-b border-gray-300 pb-1 hover:text-[#E7671E] transition-colors">
+                                  <span className="mr-1">{category}</span>
                                   <FiChevronRight className="w-4 h-4" />
                                 </div>
                               </Link>
+
                               <div className="grid grid-cols-3 gap-2">
                                 {data.items.map((subItem: SubItem) => (
                                   <motion.div
@@ -1529,7 +1541,7 @@ export default function Header() {
         {/* Logo + Search Section */}
         <div className="hidden lg:flex items-center justify-between px-6 xl:px-32 py-4">
           <Link href="/">
-            <Image src="/images/orange-productions.svg" alt="Logo" width={120} height={42} />
+            <Image src="/images/logo.svg" alt="Logo" width={120} height={42} />
           </Link>
           <div className="flex items-center gap-4 ml-auto">
             <div className="flex items-center gap-2">
@@ -1564,7 +1576,10 @@ export default function Header() {
                 className="inline-block"
               >
                 {item.hasDropdown ? (
-                  <Link href={`/category/${encodeURIComponent(item.name)}`} onClick={handleCategoryClick}>
+                  <Link
+                    href={`/category/${slugify(item.name)}`}
+                    onClick={handleCategoryClick}
+                  >
                     <span className="text-gray-800 text-xs xl:text-sm font-medium hover:text-[#E7671E] cursor-pointer flex items-center gap-1 whitespace-nowrap">
                       {item.name} {item.hasDropdown && <FiChevronDown className="w-4 h-4" />}
                     </span>
@@ -1607,7 +1622,10 @@ export default function Header() {
                           variants={{ hidden: { opacity: 0, y: -10 }, visible: { opacity: 1, y: 0 } }}
                           transition={{ duration: 0.3 }}
                         >
-                          <Link href={`/category/${encodeURIComponent(activeDropdown)}/#${slugify(category)}`} onClick={handleCategoryClick}>
+                          <Link
+                            href={`/category/${slugify(activeDropdown)}#${slugify(category)}`}
+                            onClick={handleCategoryClick}
+                          >
                             <div className="flex items-center font-bold text-gray-800 mb-3 text-sm border-b border-gray-300 pb-1 hover:text-[#E7671E] transition-colors">
                               <span className="mr-1">{category}</span>
                               <FiChevronRight className="w-4 h-4" />

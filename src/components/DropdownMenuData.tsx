@@ -487,7 +487,7 @@ export const dropdownMenus: { [menuName: string]: MenuContent } = {
             variants: [
               {
                 name: "Plain Notebook",
-                image: "/images/plain-notebook.jpg",
+                image: "/images/glue_binding_notepads_dubai.webp",
                 description: "Unruled pages for freeform writing or sketching.",
                 price: 5.99,
               },

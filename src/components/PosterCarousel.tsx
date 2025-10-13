@@ -408,6 +408,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 export default function InfiniteScrollGallery() {
   const media = [
@@ -471,16 +472,20 @@ export default function InfiniteScrollGallery() {
                 <div className="flex-shrink-0" style={{ width: "360px", padding: "0px" }}>
                   <div className="h-[480px] flex flex-col">
                     <div className="flex-1 overflow-hidden shadow-md">
-                      <img
+                      <Image
                         src={media[(startIndex + 1) % media.length].src}
                         alt={media[(startIndex + 1) % media.length].alt}
+                        width={360} // ✅ approximate width
+                        height={240} // ✅ approximate height
                         className="w-full h-full object-cover"
                       />
                     </div>
                     <div className="flex-1 overflow-hidden shadow-md">
-                      <img
+                      <Image
                         src={media[(startIndex + 2) % media.length].src}
                         alt={media[(startIndex + 2) % media.length].alt}
+                        width={360}
+                        height={240}
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -507,16 +512,20 @@ export default function InfiniteScrollGallery() {
                 <div className="flex-shrink-0" style={{ width: "460px", padding: "0px" }}>
                   <div className="h-[480px] flex flex-col">
                     <div className="flex-1 overflow-hidden shadow-md">
-                      <img
+                      <Image
                         src={media[(startIndex + 4) % media.length].src}
                         alt={media[(startIndex + 4) % media.length].alt}
+                        width={460}
+                        height={240}
                         className="w-full h-full object-cover"
                       />
                     </div>
                     <div className="flex-1 overflow-hidden shadow-md">
-                      <img
+                      <Image
                         src={media[(startIndex + 5) % media.length].src}
                         alt={media[(startIndex + 5) % media.length].alt}
+                        width={460}
+                        height={240}
                         className="w-full h-full object-cover"
                       />
                     </div>

@@ -76,6 +76,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
+import Image from "next/image";
 
 const CompanyIconsMarquee = () => {
   const companyIcons = [
@@ -117,10 +118,12 @@ const CompanyIconsMarquee = () => {
             {companyIcons.map((icon, index) => (
               <SwiperSlide key={index}>
                 <div className="flex justify-center items-center py-2">
-                  <img
+                  <Image
                     src={icon}
                     alt={`Company ${index + 1}`}
-                    className="h-16 w-auto object-contain opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-300"
+                    width={160}  // ✅ required for next/image
+                    height={80}  // ✅ adjust as needed
+                    className="object-contain opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-300"
                   />
                 </div>
               </SwiperSlide>
@@ -151,10 +154,12 @@ const CompanyIconsMarquee = () => {
             {companyIcons.map((icon, index) => (
               <SwiperSlide key={index}>
                 <div className="flex justify-center items-center py-2">
-                  <img
+                  <Image
                     src={icon}
                     alt={`Company ${index + 1}`}
-                    className="h-16 w-auto object-contain opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-300"
+                    width={160}  // ✅ required for next/image
+                    height={80}  // ✅ adjust as needed
+                    className="object-contain opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-300"
                   />
                 </div>
               </SwiperSlide>

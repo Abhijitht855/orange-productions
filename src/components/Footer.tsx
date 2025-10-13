@@ -2,7 +2,7 @@
 import React from "react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import Image from "next/image";
-import Logo from "../../public/images/orange-productions.svg"; 
+import Logo from "../../public/images/logo.svg"; 
 
 export default function OrangeFooter() {
   return (

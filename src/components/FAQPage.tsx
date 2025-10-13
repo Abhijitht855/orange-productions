@@ -94,65 +94,162 @@
 // };
 
 // export default FAQPage;
-
-
 "use client";
-
-import { useState } from "react";
-import { FaChevronDown, FaTimes } from "react-icons/fa";
+import React, { useState } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface FAQItem {
+  id: number;
   question: string;
   answer: string;
 }
 
 const faqData: FAQItem[] = [
-  { question: "Why shouldn't we trust atoms?", answer: "They make up everything" },
-  { question: "What do you call someone with no body and no nose?", answer: "Nobody knows." },
-  { question: "What's the object-oriented way to become wealthy?", answer: "Inheritance." },
-  { question: "How many tickles does it take to tickle an octopus?", answer: "Ten-tickles!" },
-  { question: "What is: 1 + 1?", answer: "Depends on who are you asking." },
+  {
+    id: 1,
+    question: "Lorem ipsum dolor sit amet?",
+    answer:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In dictum non consectetur a erat nam at lectus urna duis convallis.",
+  },
+  {
+    id: 2,
+    question: "Consectetur adipiscing elit sed do eiusmod?",
+    answer:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc faucibus a pellentesque sit amet porttitor eget dolor morbi non. Sit amet nulla facilisi morbi tempus iaculis urna id volutpat.",
+  },
+  {
+    id: 3,
+    question: "Ut enim ad minim veniam quis nostrud exercitation?",
+    answer:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dignissim diam quis enim lobortis scelerisque fermentum dui faucibus. Integer eget aliquet nibh praesent tristique magna sit amet.",
+  }
 ];
 
-const FAQPage: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(0); // first FAQ active by default
 
-  const toggleFAQ = (index: number) => {
-    setActiveIndex(activeIndex === index ? null : index);
+
+export default function FAQComponent() {
+  const [openItem, setOpenItem] = useState<number | null>(null);
+
+  const toggleItem = (id: number) => {
+    setOpenItem(openItem === id ? null : id);
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen py-16 px-4">
-      <h1 className="text-3xl md:text-4xl font-bold text-center mb-12">Frequently Asked Questions</h1>
-      <div className="max-w-2xl mx-auto space-y-6">
-        {faqData.map((faq, index) => {
-          const isActive = index === activeIndex;
-          return (
-            <div
-              key={index}
-              className={`relative border rounded-xl overflow-hidden transition-all duration-300 ${
-                isActive ? "bg-white shadow-lg" : "bg-transparent border-gray-400"
-              }`}
-            >
-              <div className="flex items-center justify-between p-6 cursor-pointer" onClick={() => toggleFAQ(index)}>
-                <h3 className="text-lg md:text-xl font-medium">{faq.question}</h3>
-                <div className="text-gray-600">
-                  {isActive ? <FaTimes className="text-gray-700" /> : <FaChevronDown />}
-                </div>
-              </div>
-              <div
-                className={`px-6 pb-6 text-gray-700 transition-all duration-300 overflow-hidden ${
-                  isActive ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
-                }`}
-              >
-                {faq.answer}
-              </div>
+    <div id="about" className="min-h-screen bg-gray-100 text-black py-20 sm:py-28 lg:py-36 px-4 md:px-24">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        {/* Left Side - Responsive Image with Bottom Content */}
+        <div className="overflow-hidden flex flex-col">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.2 }}
+            viewport={{ once: true }}
+            className="w-full"
+          >
+            <Image
+              src="/images/banner.jpeg"
+              alt="FAQ Illustration"
+              width={600}
+              height={400}
+              className="object-contain w-full h-auto"
+            />
+          </motion.div>
+
+          {/* Bottom Content under Image */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="mt-6"
+          >
+            <p className="text-black text-base sm:text-lg">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Right Side - FAQ Content */}
+        <div className="overflow-hidden">
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            {/* Heading */}
+            <div>
+              <h1 className="text-2xl sm:text-3xl font-bold">
+                Get Every <span className="text-black">Single Answer</span>
+              </h1>
             </div>
-          );
-        })}
+
+            {/* FAQ Accordion */}
+            <div className="space-y-4 pt-4">
+              {faqData.map((item) => (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: item.id * 0.1 }}
+                  viewport={{ once: true }}
+                  className="border border-black rounded-2xl overflow-hidden bg-gradient-to-tr from-white/15 to-white/5 backdrop-blur-sm"
+                >
+                  {/* Question */}
+                  <button
+                    onClick={() => toggleItem(item.id)}
+                    className="w-full flex items-center justify-between p-6 text-left transition-all duration-300"
+                  >
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-black pr-4">
+                      {item.question}
+                    </h3>
+                    <motion.div
+                      animate={{ rotate: openItem === item.id ? 45 : 0 }}
+                      transition={{ duration: 0.6 }}
+                      className="flex-shrink-0 w-8 h-8 flex items-center justify-center"
+                    >
+                      <svg
+                        className="w-6 h-6 text-black"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                        />
+                      </svg>
+                    </motion.div>
+                  </button>
+
+                  {/* Answer */}
+                  <AnimatePresence>
+                    {openItem === item.id && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.4 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-6 pb-6">
+                          <p className="text-black text-base sm:text-lg">
+                            {item.answer}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
       </div>
     </div>
   );
-};
-
-export default FAQPage;
+}
