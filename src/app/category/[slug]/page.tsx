@@ -59,6 +59,7 @@ export default function CategoryPage() {
   const categoryEntry = Object.entries(dropdownMenus).find(
   ([key]) => slugify(key) === slug
 );
+const categoryName = categoryEntry ? categoryEntry[0] : null; 
 const categoryData = categoryEntry ? categoryEntry[1] : null;
 
 
@@ -98,7 +99,7 @@ const categoryData = categoryEntry ? categoryEntry[1] : null;
     <main className="px-6 xl:px-32 py-10 bg-gray-50 min-h-screen">
       {/* Page Heading */}
       <h1 className="text-3xl font-bold text-gray-900 mb-10">
-        {slug}
+         {categoryName} 
       </h1>
 
       {/* Loop through subcategories */}

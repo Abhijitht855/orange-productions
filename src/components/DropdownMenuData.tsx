@@ -493,13 +493,13 @@ export const dropdownMenus: { [menuName: string]: MenuContent } = {
               },
               {
                 name: "Lined Notebook",
-                image: "/images/lined-notebook.jpg",
+                image: "/images/custom_design_pu_notebook_dubai.webp",
                 description: "Ruled pages for organized notes.",
                 price: 6.49,
               },
               {
                 name: "Spiral Notebook",
-                image: "/images/spiral-notebook.jpg",
+                image: "/images/perforation_binding_notepad_printing_dubai.webp",
                 description: "Spiral-bound for easy page flipping.",
                 price: 7.99,
               },

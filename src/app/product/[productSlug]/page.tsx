@@ -190,6 +190,8 @@
 //     </main>
 //   );
 // }
+
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -197,6 +199,7 @@ import { useParams } from "next/navigation";
 import Image from "next/image";
 import { dropdownMenus, SubItem, Variant } from "@/components/DropdownMenuData";
 import RelatedProducts from "@/components/RelatedProducts";
+import FaqProducts from "@/components/FaqProducts"
 
 export default function ProductPage() {
   const { productSlug } = useParams();
@@ -259,14 +262,18 @@ export default function ProductPage() {
   }
 
   return (
-    <div className="container mx-auto p-6 md:p-10">
+    <div className=" px-4 lg:px-6 xl:px-32 pt-20">
       <h1 className="text-3xl font-bold mb-10 text-center">{item.name}</h1>
+
+      <p className="text-center text-lg md:text-xl text-gray-600 mb-10 max-w-5xl mx-auto">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, vero? Deleniti autem aperiam amet ratione obcaecati provident voluptates, ipsum, totam cum et voluptas hic dolore sit quisquam aspernatur ullam velit pariatur corporis! Placeat, voluptas. Dolorum dolore voluptatum laudantium explicabo accusantium.
+      </p>
 
       <div className="space-y-12">
         {item.variants.map((variant) => (
           <div
             key={variant.name}
-            className="flex flex-col md:flex-row border rounded-lg shadow-sm hover:shadow-md transition bg-white overflow-hidden"
+            className="flex flex-col md:flex-row shadow-sm hover:shadow-md transition bg-white overflow-hidden"
           >
             {/* Left: Image */}
             <div className="md:w-1/2 bg-gray-50">
@@ -289,11 +296,10 @@ export default function ProductPage() {
                   <button
                     key={tab}
                     onClick={() => handleTabChange(variant.name, tab)}
-                    className={`flex-1 text-lg font-medium py-2 border-b-2 ${
-                      variantTabs[variant.name] === tab
+                    className={`flex-1 text-lg font-medium py-2 border-b-2 ${variantTabs[variant.name] === tab
                         ? "border-orange-500 text-orange-600"
                         : "border-transparent text-gray-500 hover:text-orange-500"
-                    }`}
+                      }`}
                   >
                     {tab}
                   </button>
@@ -369,7 +375,8 @@ export default function ProductPage() {
           </div>
         ))}
       </div>
-      <RelatedProducts/>
+      <RelatedProducts />
+      <FaqProducts/>
     </div>
   );
 }
