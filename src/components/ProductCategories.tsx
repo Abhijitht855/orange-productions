@@ -32,12 +32,6 @@ export default function ProductCategories() {
             "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=300&h=300&fit=crop",
         },
         {
-          name: "Blanket",
-          rating: 5,
-          image:
-            "https://images.unsplash.com/photo-1631120902861-952ab15178f8?w=300&h=300&fit=crop",
-        },
-        {
           name: "Bean Bag",
           rating: 4.5,
           image:
@@ -66,12 +60,7 @@ export default function ProductCategories() {
           image:
             "https://images.unsplash.com/photo-1606115915090-be18fea23ec7?w=300&h=300&fit=crop",
         },
-        {
-          name: "Tote Bag",
-          rating: 5,
-          image:
-            "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=300&h=300&fit=crop",
-        },
+
       ],
     },
     {
@@ -88,12 +77,6 @@ export default function ProductCategories() {
           rating: 5,
           image:
             "https://images.unsplash.com/photo-1617096200347-cb04ae810b1d?w=300&h=300&fit=crop",
-        },
-        {
-          name: "Name Plate",
-          rating: 4.5,
-          image:
-            "https://images.unsplash.com/photo-1595814433015-e12f91203cba?w=300&h=300&fit=crop",
         },
         {
           name: "Balloon Décor",
@@ -140,17 +123,16 @@ export default function ProductCategories() {
   };
 
   return (
-    <div className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+    <div className="min-h-screen bg-white py-12 px-4 lg:px-6 xl:px-32">
+      <div className=" mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 lg:gap-12">
           {categories.map((category, catIndex) => (
             <div key={catIndex}>
               {/* Category Title */}
               <div className="mb-6 sm:mb-8">
-                <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 mb-2">
+                <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 relative inline-block pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-1 after:bg-[#E7671E] after:rounded">
                   {category.title}
                 </h2>
-                <div className="w-16 sm:w-20 h-1 bg-orange-400 rounded"></div>
               </div>
 
               {/* Products List */}
@@ -158,7 +140,7 @@ export default function ProductCategories() {
                 {category.products.map((product, prodIndex) => (
                   <div
                     key={prodIndex}
-                    className="flex gap-4 items-start hover:bg-gray-50 p-2 sm:p-3 rounded-lg transition-colors cursor-pointer"
+                    className="flex gap-4 items-start hover:bg-gray-50 rounded-lg transition-colors cursor-pointer"
                   >
                     {/* Product Image */}
                     <div className="flex-shrink-0 w-20 h-20 sm:w-28 sm:h-28 bg-gray-200 rounded-lg overflow-hidden">

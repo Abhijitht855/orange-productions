@@ -19,8 +19,8 @@ export default function VideoCard() {
   };
 
   return (
-    <section className="p-4 sm:p-8 bg-white">
-        <div className="relative w-full max-w-7xl mx-auto mt-10 rounded-[2rem] overflow-hidden shadow-lg">
+    <section className="px-4 lg:px-6 xl:px-32 py-8">
+        <div className="relative w-full mx-auto rounded-[2rem] overflow-hidden shadow-lg">
       <video
         ref={videoRef}
         className="w-full h-[32rem] sm:h-[42rem] object-cover rounded-[2rem]"

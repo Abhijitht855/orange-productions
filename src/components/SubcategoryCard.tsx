@@ -39,7 +39,7 @@ export default function ProductCarousel() {
         <section className="bg-gray-100">
             <div className="mx-auto w-full max-w-7xl px-6 lg:px-0 pt-28 bg-gray-100">
                 <h2 className="text-4xl sm:text-5xl font-semibold text-neutral-500 break-words ">
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-rose-600">
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E7671E] to-[#FF9A4D]">
                         Stationery
                     </span>{" "}
                     <span className="block sm:inline">Items</span>

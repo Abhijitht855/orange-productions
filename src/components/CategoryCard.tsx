@@ -33,6 +33,7 @@
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
+import { slugify } from "@/utils/slugify";
 
 interface CategoryCardProps {
   name: string;
@@ -40,7 +41,7 @@ interface CategoryCardProps {
 }
 
 const CategoryCard: React.FC<CategoryCardProps> = ({ name, image }) => {
-  const productSlug = name.toLowerCase().replace(/\s+/g, '-');
+  const productSlug = slugify(name);
 
   return (
     <Link href={`/product/${productSlug}`}>

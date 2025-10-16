@@ -200,6 +200,7 @@ import Image from "next/image";
 import { dropdownMenus, SubItem, Variant } from "@/components/DropdownMenuData";
 import RelatedProducts from "@/components/RelatedProducts";
 import FaqProducts from "@/components/FaqProducts"
+import { slugify } from "@/utils/slugify";
 
 export default function ProductPage() {
   const { productSlug } = useParams();
@@ -210,12 +211,13 @@ export default function ProductPage() {
 
   useEffect(() => {
     let foundItem: SubItem | null = null;
+
     for (const menuName in dropdownMenus) {
       const menu = dropdownMenus[menuName];
       for (const categoryName in menu.categories) {
         const category = menu.categories[categoryName];
         const matchedItem = category.items.find(
-          (i) => i.name.toLowerCase().replace(/\s+/g, "-") === productSlug
+          (i) => slugify(i.name) === productSlug  // ✅ use slugify here
         );
         if (matchedItem) {
           foundItem = matchedItem;
@@ -297,8 +299,8 @@ export default function ProductPage() {
                     key={tab}
                     onClick={() => handleTabChange(variant.name, tab)}
                     className={`flex-1 text-lg font-medium py-2 border-b-2 ${variantTabs[variant.name] === tab
-                        ? "border-orange-500 text-orange-600"
-                        : "border-transparent text-gray-500 hover:text-orange-500"
+                      ? "border-orange-500 text-orange-600"
+                      : "border-transparent text-gray-500 hover:text-orange-500"
                       }`}
                   >
                     {tab}
@@ -376,7 +378,7 @@ export default function ProductPage() {
         ))}
       </div>
       <RelatedProducts />
-      <FaqProducts/>
+      <FaqProducts />
     </div>
   );
 }
