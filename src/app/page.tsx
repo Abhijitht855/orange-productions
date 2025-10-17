@@ -16,7 +16,7 @@ import FAQPage from "@/components/FAQPage";
 export default function Home() {
   return (
     <div className="">
-      {/* <PosterCarousel/> */}
+      <PosterCarousel/>
       <Hero/>
       <SubcategoryCard/>
       <SubCat/>
