@@ -192,6 +192,198 @@
 // }
 
 
+// "use client";
+
+// import { useState, useEffect } from "react";
+// import { useParams } from "next/navigation";
+// import Image from "next/image";
+// import { dropdownMenus, SubItem, Variant } from "@/components/DropdownMenuData";
+// import RelatedProducts from "@/components/RelatedProducts";
+// import FaqProducts from "@/components/FaqProducts"
+// import { slugify } from "@/utils/slugify";
+
+// export default function ProductPage() {
+//   const { productSlug } = useParams();
+//   const [item, setItem] = useState<SubItem | null>(null);
+//   const [variantTabs, setVariantTabs] = useState<Record<string, string>>({});
+//   const [quantities, setQuantities] = useState<Record<string, string>>({});
+//   const [totals, setTotals] = useState<Record<string, number>>({});
+
+//   useEffect(() => {
+//     let foundItem: SubItem | null = null;
+
+//     for (const menuName in dropdownMenus) {
+//       const menu = dropdownMenus[menuName];
+//       for (const categoryName in menu.categories) {
+//         const category = menu.categories[categoryName];
+//         const matchedItem = category.items.find(
+//           (i) => slugify(i.name) === productSlug  // ✅ use slugify here
+//         );
+//         if (matchedItem) {
+//           foundItem = matchedItem;
+//           break;
+//         }
+//       }
+//       if (foundItem) break;
+//     }
+
+//     if (foundItem) {
+//       setItem(foundItem);
+
+//       // Initialize tabs
+//       const initialTabs: Record<string, string> = {};
+//       if (foundItem.variants) {
+//         foundItem.variants.forEach((v: Variant) => {
+//           initialTabs[v.name] = "Price";
+//         });
+//         setVariantTabs(initialTabs);
+//       }
+//     }
+//   }, [productSlug]);
+
+//   const handleTabChange = (variantName: string, tab: string) => {
+//     setVariantTabs((prev) => ({ ...prev, [variantName]: tab }));
+//   };
+
+//   const handleQuantityChange = (variantName: string, value: string) => {
+//     setQuantities((prev) => ({ ...prev, [variantName]: value }));
+//     const variant = item?.variants?.find((v) => v.name === variantName);
+//     const qty = parseInt(value) || 0;
+//     const price = variant?.price || 0;
+//     setTotals((prev) => ({ ...prev, [variantName]: qty * price }));
+//   };
+
+//   if (!item) return <div className="text-center py-10">Product not found</div>;
+
+//   if (!item.variants) {
+//     return (
+//       <div className="text-center py-10">
+//         No variants available for {item.name}
+//       </div>
+//     );
+//   }
+
+//   return (
+//     <div className=" px-4 lg:px-6 xl:px-32 pt-20">
+//       <h1 className="text-3xl font-bold mb-10 text-center">{item.name}</h1>
+
+//       <p className="text-center text-lg md:text-xl text-gray-600 mb-10 max-w-5xl mx-auto">
+//         Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, vero? Deleniti autem aperiam amet ratione obcaecati provident voluptates, ipsum, totam cum et voluptas hic dolore sit quisquam aspernatur ullam velit pariatur corporis! Placeat, voluptas. Dolorum dolore voluptatum laudantium explicabo accusantium.
+//       </p>
+
+//       <div className="space-y-12">
+//         {item.variants.map((variant) => (
+//           <div
+//             key={variant.name}
+//             className="flex flex-col md:flex-row shadow-sm hover:shadow-md transition bg-white overflow-hidden"
+//           >
+//             {/* Left: Image */}
+//             <div className="md:w-1/2 bg-gray-50">
+//               {variant.image && (
+//                 <Image
+//                   src={variant.image}
+//                   alt={variant.name}
+//                   width={600}
+//                   height={400}
+//                   className="object-contain w-full h-auto"
+//                 />
+//               )}
+//             </div>
+
+//             {/* Right: Tabs + Content */}
+//             <div className="md:w-1/2 p-6">
+//               {/* Tabs */}
+//               <div className="flex border-b mb-4">
+//                 {["Price", "About"].map((tab) => (
+//                   <button
+//                     key={tab}
+//                     onClick={() => handleTabChange(variant.name, tab)}
+//                     className={`flex-1 text-lg font-medium py-2 border-b-2 ${variantTabs[variant.name] === tab
+//                       ? "border-orange-500 text-orange-600"
+//                       : "border-transparent text-gray-500 hover:text-orange-500"
+//                       }`}
+//                   >
+//                     {tab}
+//                   </button>
+//                 ))}
+//               </div>
+
+//               {/* Tab Content */}
+//               {variantTabs[variant.name] === "Price" && (
+//                 <div>
+//                   <h2 className="text-2xl font-semibold mb-3">
+//                     {variant.name}
+//                   </h2>
+
+//                   <p className="text-gray-700 mb-3">
+//                     Price:{" "}
+//                     <span className="font-bold text-orange-600">
+//                       {variant.price ? `$${variant.price.toFixed(2)}` : "N/A"}
+//                     </span>
+//                   </p>
+
+//                   <div className="mb-4">
+//                     <label className="font-medium text-sm mr-2">
+//                       Quantity:
+//                     </label>
+//                     <select
+//                       value={quantities[variant.name] || ""}
+//                       onChange={(e) =>
+//                         handleQuantityChange(variant.name, e.target.value)
+//                       }
+//                       className="border rounded-md p-1"
+//                     >
+//                       <option value="">--Select--</option>
+//                       {[10, 50, 100, 500, 1000].map((qty) => (
+//                         <option key={qty} value={qty}>
+//                           {qty}
+//                         </option>
+//                       ))}
+//                     </select>
+//                   </div>
+
+//                   <p className="text-base font-semibold">
+//                     Total:{" "}
+//                     <span className="text-orange-600">
+//                       ${totals[variant.name]?.toFixed(2) || "0.00"}
+//                     </span>{" "}
+//                     <span className="text-gray-500 text-sm">(Excl. VAT)</span>
+//                   </p>
+
+//                   <p className="text-sm text-gray-500 mt-4">
+//                     <span className="font-semibold">Note:</span> The prices
+//                     listed are for readymade products. Additional customization
+//                     may incur extra costs.
+//                   </p>
+
+//                   <button className="mt-6 bg-orange-600 text-white px-6 py-2 rounded-md hover:bg-orange-700 transition">
+//                     Order Now
+//                   </button>
+//                 </div>
+//               )}
+
+//               {variantTabs[variant.name] === "About" && (
+//                 <div>
+//                   <h2 className="text-2xl font-semibold mb-3">
+//                     {variant.name}
+//                   </h2>
+//                   <p className="text-gray-600 leading-relaxed">
+//                     {variant.description ||
+//                       "No additional information available for this variant."}
+//                   </p>
+//                 </div>
+//               )}
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//       <RelatedProducts />
+//       <FaqProducts />
+//     </div>
+//   );
+// }
+
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -199,7 +391,7 @@ import { useParams } from "next/navigation";
 import Image from "next/image";
 import { dropdownMenus, SubItem, Variant } from "@/components/DropdownMenuData";
 import RelatedProducts from "@/components/RelatedProducts";
-import FaqProducts from "@/components/FaqProducts"
+import FaqProducts from "@/components/FaqProducts";
 import { slugify } from "@/utils/slugify";
 
 export default function ProductPage() {
@@ -207,6 +399,7 @@ export default function ProductPage() {
   const [item, setItem] = useState<SubItem | null>(null);
   const [variantTabs, setVariantTabs] = useState<Record<string, string>>({});
   const [quantities, setQuantities] = useState<Record<string, string>>({});
+  const [sizes, setSizes] = useState<Record<string, string>>({});
   const [totals, setTotals] = useState<Record<string, number>>({});
 
   useEffect(() => {
@@ -217,7 +410,7 @@ export default function ProductPage() {
       for (const categoryName in menu.categories) {
         const category = menu.categories[categoryName];
         const matchedItem = category.items.find(
-          (i) => slugify(i.name) === productSlug  // ✅ use slugify here
+          (i) => slugify(i.name) === productSlug
         );
         if (matchedItem) {
           foundItem = matchedItem;
@@ -232,11 +425,14 @@ export default function ProductPage() {
 
       // Initialize tabs
       const initialTabs: Record<string, string> = {};
+      const initialSizes: Record<string, string> = {};
       if (foundItem.variants) {
         foundItem.variants.forEach((v: Variant) => {
           initialTabs[v.name] = "Price";
+          initialSizes[v.name] = v.sizes?.[0] || ""; // Default to first size if available
         });
         setVariantTabs(initialTabs);
+        setSizes(initialSizes);
       }
     }
   }, [productSlug]);
@@ -253,6 +449,10 @@ export default function ProductPage() {
     setTotals((prev) => ({ ...prev, [variantName]: qty * price }));
   };
 
+  const handleSizeChange = (variantName: string, value: string) => {
+    setSizes((prev) => ({ ...prev, [variantName]: value }));
+  };
+
   if (!item) return <div className="text-center py-10">Product not found</div>;
 
   if (!item.variants) {
@@ -264,7 +464,7 @@ export default function ProductPage() {
   }
 
   return (
-    <div className=" px-4 lg:px-6 xl:px-32 pt-20">
+    <div className="px-4 lg:px-6 xl:px-32 pt-20">
       <h1 className="text-3xl font-bold mb-10 text-center">{item.name}</h1>
 
       <p className="text-center text-lg md:text-xl text-gray-600 mb-10 max-w-5xl mx-auto">
@@ -298,10 +498,11 @@ export default function ProductPage() {
                   <button
                     key={tab}
                     onClick={() => handleTabChange(variant.name, tab)}
-                    className={`flex-1 text-lg font-medium py-2 border-b-2 ${variantTabs[variant.name] === tab
-                      ? "border-orange-500 text-orange-600"
-                      : "border-transparent text-gray-500 hover:text-orange-500"
-                      }`}
+                    className={`flex-1 text-lg font-medium py-2 border-b-2 ${
+                      variantTabs[variant.name] === tab
+                        ? "border-orange-500 text-orange-600"
+                        : "border-transparent text-gray-500 hover:text-orange-500"
+                    }`}
                   >
                     {tab}
                   </button>
@@ -311,65 +512,70 @@ export default function ProductPage() {
               {/* Tab Content */}
               {variantTabs[variant.name] === "Price" && (
                 <div>
-                  <h2 className="text-2xl font-semibold mb-3">
-                    {variant.name}
-                  </h2>
-
-                  <p className="text-gray-700 mb-3">
-                    Price:{" "}
-                    <span className="font-bold text-orange-600">
-                      {variant.price ? `$${variant.price.toFixed(2)}` : "N/A"}
-                    </span>
-                  </p>
-
-                  <div className="mb-4">
-                    <label className="font-medium text-sm mr-2">
-                      Quantity:
-                    </label>
-                    <select
-                      value={quantities[variant.name] || ""}
-                      onChange={(e) =>
-                        handleQuantityChange(variant.name, e.target.value)
-                      }
-                      className="border rounded-md p-1"
-                    >
-                      <option value="">--Select--</option>
-                      {[10, 50, 100, 500, 1000].map((qty) => (
-                        <option key={qty} value={qty}>
-                          {qty}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <p className="text-base font-semibold">
-                    Total:{" "}
-                    <span className="text-orange-600">
-                      ${totals[variant.name]?.toFixed(2) || "0.00"}
-                    </span>{" "}
-                    <span className="text-gray-500 text-sm">(Excl. VAT)</span>
-                  </p>
-
-                  <p className="text-sm text-gray-500 mt-4">
-                    <span className="font-semibold">Note:</span> The prices
-                    listed are for readymade products. Additional customization
-                    may incur extra costs.
-                  </p>
-
-                  <button className="mt-6 bg-orange-600 text-white px-6 py-2 rounded-md hover:bg-orange-700 transition">
-                    Order Now
-                  </button>
+                  <h2 className="text-2xl font-semibold mb-3">{variant.name}</h2>
+                  {variant.price ? (
+                    <>
+                      <p className="text-gray-700 mb-3">
+                        Price:{" "}
+                        <span className="font-bold text-orange-600">
+                          ${variant.price.toFixed(2)}
+                        </span>
+                      </p>
+                      <div className="mb-4">
+                        <label className="font-medium text-sm mr-2">Size:</label>
+                        <select
+                          value={sizes[variant.name] || ""}
+                          onChange={(e) => handleSizeChange(variant.name, e.target.value)}
+                          className="border rounded-md p-1"
+                        >
+                          <option value="">--Select Size--</option>
+                          {variant.sizes?.map((size) => (
+                            <option key={size} value={size}>
+                              {size}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                      <div className="mb-4">
+                        <label className="font-medium text-sm mr-2">Quantity:</label>
+                        <select
+                          value={quantities[variant.name] || ""}
+                          onChange={(e) => handleQuantityChange(variant.name, e.target.value)}
+                          className="border rounded-md p-1"
+                        >
+                          <option value="">--Select--</option>
+                          {[10, 50, 100, 500, 1000].map((qty) => (
+                            <option key={qty} value={qty}>
+                              {qty}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                      <p className="text-base font-semibold">
+                        Total:{" "}
+                        <span className="text-orange-600">
+                          ${totals[variant.name]?.toFixed(2) || "0.00"}
+                        </span>{" "}
+                        <span className="text-gray-500 text-sm">(Excl. VAT)</span>
+                      </p>
+                      <p className="text-sm text-gray-500 mt-4">
+                        <span className="font-semibold">Note:</span> The prices listed are for readymade products. Additional customization may incur extra costs.
+                      </p>
+                      <button className="mt-6 bg-orange-600 text-white px-6 py-2 rounded-md hover:bg-orange-700 transition">
+                        Order Now
+                      </button>
+                    </>
+                  ) : (
+                    <p className="text-gray-600">Price information not available.</p>
+                  )}
                 </div>
               )}
 
               {variantTabs[variant.name] === "About" && (
                 <div>
-                  <h2 className="text-2xl font-semibold mb-3">
-                    {variant.name}
-                  </h2>
+                  <h2 className="text-2xl font-semibold mb-3">{variant.name}</h2>
                   <p className="text-gray-600 leading-relaxed">
-                    {variant.description ||
-                      "No additional information available for this variant."}
+                    {variant.description || "No additional information available for this variant."}
                   </p>
                 </div>
               )}

@@ -413,7 +413,7 @@ export default function OrderProcess() {
       <div className="px-4 lg:px-6 xl:px-32 mb-8">
         <h2 className="text-4xl sm:text-5xl font-semibold">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E7671E] to-[#FF9A4D]">
-            Follow Us 
+            Follow Us
           </span>{" "}
           <span className="text-neutral-500">for Hot Deals & Updates!</span>
         </h2>
@@ -454,15 +454,16 @@ export default function OrderProcess() {
         >
           {steps.map((step, idx) => (
             <SwiperSlide key={idx}>
-              <div className="relative rounded-xl overflow-hidden sm:h-[34rem] cursor-pointer bg-white shadow-sm">
+              <div className="relative rounded-xl overflow-hidden aspect-[4/5] cursor-pointer bg-white shadow-sm">
                 <Image
                   src={step.image}
                   alt={`Slide ${idx + 1}`}
-                  width={800}
-                  height={600}
+                  width={1080}
+                  height={1350}
                   className="w-full h-full object-cover"
                 />
               </div>
+
             </SwiperSlide>
           ))}
         </Swiper>
@@ -490,3 +491,4 @@ export default function OrderProcess() {
     </section>
   );
 }
+

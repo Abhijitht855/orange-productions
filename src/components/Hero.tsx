@@ -5,13 +5,13 @@ import { slugify } from "@/utils/slugify"; // 🔹 import the utility
 
 export default function Hero() {
   const categories = [
-    { name: "PRINT AND MARKETING", img: "/images/bottleNew.png" },
-    { name: "OFFICE BRANDING", img: "/images/bottleNew.png" },
-    { name: "SIGNAGES", img: "/images/bottleNew.png" },
-    { name: "FLAGS", img: "/images/bottleNew.png" },
-    { name: "BACKDROPS & EXHIBITION", img: "/images/bottleNew.png" },
-    { name: "CORPORATE GIFTS", img: "/images/bottleNew.png" },
-    { name: "VIDEO BROCHURE", img: "/images/bottleNew.png" },
+    { name: "PRINT AND MARKETING", img: "/images/blank-ruled-notebook-white-table.png" },
+    { name: "OFFICE BRANDING", img: "/images/metalplate1.jpg" },
+    { name: "SIGNAGES", img: "/images/flat-lay-frame-with-floral-concept-removebg-preview.png" },
+    { name: "FLAGS", img: "/images/flag.jpg" },
+    { name: "BACKDROPS & EXHIBITION", img: "/images/476-removebg-preview.png" },
+    { name: "CORPORATE GIFTS", img: "/images/headphone.jpg" },
+    { name: "VIDEO BROCHURE", img: "/images/eid_chocolate_box_13-removebg-preview.png" },
 
     
   ];
