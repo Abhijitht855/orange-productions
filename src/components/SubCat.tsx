@@ -355,6 +355,140 @@
 //     </section>
 //   );
 // }
+
+// "use client";
+
+// import React, { useRef, useState, useEffect } from "react";
+// import { Swiper as SwiperType } from "swiper";
+// import Image from "next/image";
+// import Link from "next/link";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import "swiper/css";
+// import "swiper/css/pagination";
+// import "swiper/css/navigation";
+// import { Pagination, Navigation } from "swiper/modules";
+// import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
+// import { dropdownMenus } from "./DropdownMenuData"; // Adjust the import path as needed
+
+// interface Product {
+//   id: number;
+//   name: string;
+//   description: string;
+//   price: string;
+//   image: string;
+// }
+
+// export default function ProductCarousel() {
+//   const swiperRef = useRef<SwiperType | null>(null);
+//   const [isMounted, setIsMounted] = useState(false);
+
+//   // Ensure Swiper renders only on the client
+//   useEffect(() => {
+//     setIsMounted(true);
+//   }, []);
+
+//   // Extract "Gift Box" from "PRINT AND MARKETING" menu
+//   const giftBoxItems = dropdownMenus["PRINT AND MARKETING"].categories["Gift Box"].items;
+
+//   // Map items to Product interface
+//   const products: Product[] = giftBoxItems.map((item, index) => ({
+//     id: index + 1,
+//     name: item.name,
+//     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+//     price: `₹${150 + index * 30}`, // Placeholder prices from original
+//     image: item.image || "/images/placeholder.webp", // Use item image with fallback
+//   }));
+
+//   // Function to generate slug from product name
+//   const generateSlug = (name: string) =>
+//     name
+//       .toLowerCase()
+//       .replace(/[^a-z0-9]+/g, "-")
+//       .replace(/(^-|-$)/g, "");
+
+//   return (
+//     <section className="w-full py-20 relative overflow-hidden">
+//       {/* Header */}
+//       <div className="px-4 lg:px-6 xl:px-32 mb-8">
+//         <h2 className="text-4xl sm:text-5xl font-semibold">
+//           <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E7671E] to-[#FF9A4D]">
+//             Gift Box
+//           </span>
+//         </h2>
+//       </div>
+
+//       {/* Swiper Container */}
+//       <div className="relative">
+//         {isMounted && (
+//           <Swiper
+//             modules={[Pagination, Navigation]}
+//             spaceBetween={24}
+//             slidesPerView={1.1}
+//             slidesOffsetBefore={16}
+//             slidesOffsetAfter={16}
+//             onSwiper={(swiper) => (swiperRef.current = swiper)}
+//             breakpoints={{
+//               640: { slidesPerView: 1.2, slidesOffsetBefore: 16, slidesOffsetAfter: 16 },
+//               768: { slidesPerView: 1.6, slidesOffsetBefore: 16, slidesOffsetAfter: 16 },
+//               1024: { slidesPerView: 2.5, slidesOffsetBefore: 24, slidesOffsetAfter: 24 },
+//               1280: { slidesPerView: 3.5, slidesOffsetBefore: 128, slidesOffsetAfter: 128 },
+//             }}
+//             centeredSlides={false}
+//           >
+//             {products.map((product) => (
+//               <SwiperSlide key={product.id}>
+//                 <Link href={`/product/${generateSlug(product.name)}`}>
+//                   <div className="relative rounded-xl overflow-hidden aspect-[4/5] bg-white shadow-sm cursor-pointer flex flex-col justify-between transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl">
+//                     <div className="p-4 sm:p-6">
+//                       <h3 className="text-xl sm:text-2xl font-semibold text-gray-900">
+//                         {product.name}
+//                       </h3>
+//                       <p className="text-gray-700 text-sm sm:text-base mt-2 line-clamp-2">
+//                         {product.description}
+//                       </p>
+//                       <p className="text-gray-500 mt-2 font-medium">{product.price}</p>
+//                     </div>
+
+//                     <div className="w-full h-full relative">
+//                       <Image
+//                         src={product.image}
+//                         alt={product.name}
+//                         width={1080}
+//                         height={1350}
+//                         className="w-full h-full object-cover"
+//                       />
+//                     </div>
+//                   </div>
+//                 </Link>
+//               </SwiperSlide>
+//             ))}
+//           </Swiper>
+//         )}
+
+//         {/* Navigation Buttons */}
+//         <div className="absolute inset-y-0 left-4 flex items-center z-10">
+//           <button
+//             onClick={() => swiperRef.current?.slidePrev()}
+//             className="rounded-full p-2 cursor-pointer transition-all bg-gray-400/30 hover:bg-gray-400/40"
+//           >
+//             <FaChevronLeft size={40} className="text-gray-600 drop-shadow-lg" />
+//           </button>
+//         </div>
+
+//         <div className="absolute inset-y-0 right-4 flex items-center z-10">
+//           <button
+//             onClick={() => swiperRef.current?.slideNext()}
+//             className="rounded-full p-2 cursor-pointer transition-all bg-gray-400/30 hover:bg-gray-400/40"
+//           >
+//             <FaChevronRight size={40} className="text-gray-600 drop-shadow-lg" />
+//           </button>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
@@ -408,7 +542,7 @@ export default function ProductCarousel() {
   return (
     <section className="w-full py-20 relative overflow-hidden">
       {/* Header */}
-      <div className="px-4 lg:px-6 xl:px-32 mb-8">
+      <div className="px-4 lg:px-6 xl:px-32 mb-4">
         <h2 className="text-4xl sm:text-5xl font-semibold">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E7671E] to-[#FF9A4D]">
             Gift Box
@@ -417,7 +551,7 @@ export default function ProductCarousel() {
       </div>
 
       {/* Swiper Container */}
-      <div className="relative">
+      <div className="relative ">
         {isMounted && (
           <Swiper
             modules={[Pagination, Navigation]}
@@ -435,9 +569,9 @@ export default function ProductCarousel() {
             centeredSlides={false}
           >
             {products.map((product) => (
-              <SwiperSlide key={product.id}>
+              <SwiperSlide key={product.id} className="pt-2 pb-10">
                 <Link href={`/product/${generateSlug(product.name)}`}>
-                  <div className="relative rounded-xl overflow-hidden aspect-[4/5] bg-white shadow-sm cursor-pointer flex flex-col justify-between transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl">
+                  <div className="relative rounded-xl overflow-hidden aspect-[4/5] bg-white shadow-sm cursor-pointer flex flex-col justify-between transition-transform duration-300 hover:scale-[1.01] hover:shadow-xl">
                     <div className="p-4 sm:p-6">
                       <h3 className="text-xl sm:text-2xl font-semibold text-gray-900">
                         {product.name}

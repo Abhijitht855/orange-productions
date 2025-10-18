@@ -95,14 +95,17 @@
 
 // export default FAQPage;
 "use client";
+
 import React, { useState } from "react";
-import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
 
 interface FAQItem {
   id: number;
   question: string;
   answer: string;
+}
+
+interface FAQComponentProps {
+  variantName?: string; // Optional prop to prefill Required Item
 }
 
 const faqData: FAQItem[] = [
@@ -123,131 +126,196 @@ const faqData: FAQItem[] = [
     question: "Ut enim ad minim veniam quis nostrud exercitation?",
     answer:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dignissim diam quis enim lobortis scelerisque fermentum dui faucibus. Integer eget aliquet nibh praesent tristique magna sit amet.",
-  }
+  },
 ];
 
+export default function FAQComponent({ variantName = "" }: FAQComponentProps) {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    requiredItem: variantName,
+    message: "",
+  });
 
-
-export default function FAQComponent() {
   const [openItem, setOpenItem] = useState<number | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+    // Add your form submission logic here
+  };
 
   const toggleItem = (id: number) => {
     setOpenItem(openItem === id ? null : id);
   };
 
   return (
-    <div id="about" className="min-h-screen bg-gray-100 text-black py-20 sm:py-28 lg:py-36 px-4 md:px-24">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        {/* Left Side - Responsive Image with Bottom Content */}
-        <div className="overflow-hidden flex flex-col">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.2 }}
-            viewport={{ once: true }}
-            className="w-full"
-          >
-            <Image
-              src="/images/banner.jpeg"
-              alt="FAQ Illustration"
-              width={600}
-              height={400}
-              className="object-contain w-full h-auto"
-            />
-          </motion.div>
-
-          {/* Bottom Content under Image */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="mt-6"
-          >
-            <p className="text-black text-base sm:text-lg">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    <div id="about" className="min-h-screen bg-gray-200 text-black py-20 sm:py-28 lg:py-36 px-4 md:px-12 lg:px-24">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-0">
+        {/* Left Side - Inquiry Form */}
+        <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-lg z-10 lg:-mr-5">
+          <div className="mb-8">
+            <div className="inline-block border border-[#E7671E] rounded-full px-6 py-2 mb-6">
+              <span className="text-sm text-gray-600 uppercase tracking-wide">Inquiry Form</span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-bold text-slate-800 mb-4">
+              Let&apos;s Connect
+            </h1>
+            <p className="text-gray-600 text-lg">
+              Submit your inquiry to connect with our team for tailored solutions.
             </p>
-          </motion.div>
+          </div>
+
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  Your name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="e.g. John Smith"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E7671E] focus:border-transparent"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  Email address
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="e.g. john@email.com"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E7671E] focus:border-transparent"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  Phone number
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="e.g. +1 222 444 66"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E7671E] focus:border-transparent"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="requiredItem" className="block text-sm font-medium text-gray-700 mb-2">
+                  Required Item
+                </label>
+                <input
+                  type="text"
+                  id="requiredItem"
+                  name="requiredItem"
+                  value={formData.requiredItem}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E7671E] focus:border-transparent"
+                  placeholder="e.g. Headphone"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                Your message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows={5}
+                placeholder="Type here ..."
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E7671E] focus:border-transparent resize-none"
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full sm:w-auto px-8 py-4 bg-[#E7671E] text-white rounded-full font-medium hover:bg-[#D55A1B] transition-colors duration-300"
+            >
+              Submit Inquiry
+            </button>
+          </form>
         </div>
 
-        {/* Right Side - FAQ Content */}
-        <div className="overflow-hidden">
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
-            {/* Heading */}
-            <div>
-              <h1 className="text-2xl sm:text-3xl font-bold">
-                Get Every <span className="text-black">Single Answer</span>
-              </h1>
-            </div>
+        {/* Right Side - FAQ Section */}
+        <div className="bg-gray-100 rounded-r-3xl rounded-l-none p-8 sm:p-12 shadow-lg">
+          <div className="mb-8">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-2">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-gray-600 text-lg">
+              Find answers to common questions about our services
+            </p>
+          </div>
 
-            {/* FAQ Accordion */}
-            <div className="space-y-4 pt-4">
-              {faqData.map((item) => (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: item.id * 0.1 }}
-                  viewport={{ once: true }}
-                  className="border border-black rounded-2xl overflow-hidden bg-gradient-to-tr from-white/15 to-white/5 backdrop-blur-sm"
+          {/* FAQ Accordion */}
+          <div className="space-y-4">
+            {faqData.map((item) => (
+              <div key={item.id} className="border border-gray-200 rounded-xl overflow-hidden">
+                {/* Question */}
+                <button
+                  onClick={() => toggleItem(item.id)}
+                  className="w-full flex items-center justify-between p-6 text-left transition-all duration-300 hover:bg-gray-50"
                 >
-                  {/* Question */}
-                  <button
-                    onClick={() => toggleItem(item.id)}
-                    className="w-full flex items-center justify-between p-6 text-left transition-all duration-300"
-                  >
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-black pr-4">
-                      {item.question}
-                    </h3>
-                    <motion.div
-                      animate={{ rotate: openItem === item.id ? 45 : 0 }}
-                      transition={{ duration: 0.6 }}
-                      className="flex-shrink-0 w-8 h-8 flex items-center justify-center"
+                  <h3 className="text-lg sm:text-xl font-semibold text-slate-800 pr-4">
+                    {item.question}
+                  </h3>
+                  <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center">
+                    <svg
+                      className={`w-6 h-6 text-slate-700 transform ${openItem === item.id ? "rotate-45" : ""}`}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
                     >
-                      <svg
-                        className="w-6 h-6 text-black"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                        />
-                      </svg>
-                    </motion.div>
-                  </button>
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                      />
+                    </svg>
+                  </div>
+                </button>
 
-                  {/* Answer */}
-                  <AnimatePresence>
-                    {openItem === item.id && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.4 }}
-                        className="overflow-hidden"
-                      >
-                        <div className="px-6 pb-6">
-                          <p className="text-black text-base sm:text-lg">
-                            {item.answer}
-                          </p>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+                {/* Answer */}
+                {openItem === item.id && (
+                  <div className="px-6 pb-6 pt-2">
+                    <p className="text-gray-600 text-base leading-relaxed">
+                      {item.answer}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

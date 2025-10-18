@@ -397,11 +397,11 @@ interface Poster {
 
 const steps: Poster[] = [
   { image: "/images/Social.jpg" },
-  { image: "/images/Social.jpg" },
-  { image: "/images/Social.jpg" },
-  { image: "/images/Social.jpg" },
-  { image: "/images/Social.jpg" },
-  { image: "/images/Social.jpg" },
+  { image: "/images/Social1.jpg" },
+  { image: "/images/Social2.jpg" },
+  { image: "/images/Social3.jpg" },
+  { image: "/images/Social4.jpg" },
+  { image: "/images/Social5.jpg" },
 ];
 
 export default function OrderProcess() {

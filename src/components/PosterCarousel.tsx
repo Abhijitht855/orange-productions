@@ -540,9 +540,188 @@
 //   );
 // }
 
+// "use client";
+
+// import React, { useRef, useEffect } from "react";
+// import Image from "next/image";
+
+// interface MediaItem {
+//   id: number;
+//   src: string;
+//   alt: string;
+//   type: "video" | "image";
+// }
+
+// export default function InfiniteScrollGallery() {
+//   const media: MediaItem[] = [
+//     { id: 1, src: "/videos/orange.mp4", alt: "Elderly person with sunglasses", type: "video" },
+//     { id: 2, src: "/images/Social.jpg", alt: "Person wearing a smartwatch", type: "image" },
+//     { id: 3, src: "/images/Social.jpg", alt: "Person using a tablet", type: "image" },
+//     { id: 4, src: "/videos/x4fa4f3ce9_large.mp4", alt: "Video call on a phone", type: "video" },
+//     { id: 5, src: "/images/Social.jpg", alt: "Two people with phones", type: "image" },
+//     { id: 6, src: "/images/Social.jpg", alt: "Person with headphones", type: "image" },
+//   ];
+
+//   // Duplicate once for seamless scroll
+//   const duplicatedMedia = [...media, ...media];
+
+//   return (
+//     <div className="w-full overflow-hidden bg-white py-16">
+//       <style jsx>{`
+//         @keyframes scroll-left {
+//           0% {
+//             transform: translateX(0);
+//           }
+//           100% {
+//             transform: translateX(-50%);
+//           }
+//         }
+
+//         .scroll-track {
+//           display: flex;
+//           animation: scroll-left 120s linear infinite;
+//           will-change: transform;
+//         }
+
+//         .scroll-track:hover {
+//           animation-play-state: paused;
+//         }
+//       `}</style>
+
+//       <div className="relative flex overflow-hidden">
+//         <div className="scroll-track">
+//           {duplicatedMedia.map((_, outerIndex) => {
+//             const startIndex = (outerIndex * 6) % media.length;
+
+//             return (
+//               <React.Fragment key={`group-${outerIndex}`}>
+//                 {/* Column 1: Video */}
+//                 <div className="flex-shrink-0 w-[560px] h-[480px] p-0">
+//                   {media[(startIndex + 3) % media.length].type === "video" ? (
+//                     <LazyVideo
+//                       src={media[(startIndex + 3) % media.length].src}
+//                       alt={media[(startIndex + 3) % media.length].alt}
+//                     />
+//                   ) : (
+//                     <Image
+//                       src={media[(startIndex + 3) % media.length].src}
+//                       alt={media[(startIndex + 3) % media.length].alt}
+//                       width={560}
+//                       height={480}
+//                       className="w-full h-full object-cover shadow-md"
+//                       loading="lazy"
+//                     />
+//                   )}
+//                 </div>
+
+//                 {/* Column 2: Two stacked images */}
+//                 <div className="flex-shrink-0 w-[360px] h-[480px] flex flex-col p-0">
+//                   {[1, 2].map((i) => (
+//                     <div key={i} className="flex-1 overflow-hidden shadow-md">
+//                       {media[(startIndex + i) % media.length].type === "video" ? (
+//                         <LazyVideo
+//                           src={media[(startIndex + i) % media.length].src}
+//                           alt={media[(startIndex + i) % media.length].alt}
+//                         />
+//                       ) : (
+//                         <Image
+//                           src={media[(startIndex + i) % media.length].src}
+//                           alt={media[(startIndex + i) % media.length].alt}
+//                           width={360}
+//                           height={240}
+//                           className="w-full h-full object-cover"
+//                           loading="lazy"
+//                         />
+//                       )}
+//                     </div>
+//                   ))}
+//                 </div>
+
+//                 {/* Column 3: Video */}
+//                 <div className="flex-shrink-0 w-[300px] h-[480px] p-0">
+//                   {media[(startIndex + 0) % media.length].type === "video" ? (
+//                     <LazyVideo
+//                       src={media[(startIndex + 0) % media.length].src}
+//                       alt={media[(startIndex + 0) % media.length].alt}
+//                     />
+//                   ) : (
+//                     <Image
+//                       src={media[(startIndex + 0) % media.length].src}
+//                       alt={media[(startIndex + 0) % media.length].alt}
+//                       width={300}
+//                       height={480}
+//                       className="w-full h-full object-cover shadow-md"
+//                       loading="lazy"
+//                     />
+//                   )}
+//                 </div>
+
+//                 {/* Column 4: Two stacked images */}
+//                 <div className="flex-shrink-0 w-[460px] h-[480px] flex flex-col p-0">
+//                   {[4, 5].map((i) => (
+//                     <div key={i} className="flex-1 overflow-hidden shadow-md">
+//                       {media[(startIndex + i) % media.length].type === "video" ? (
+//                         <LazyVideo
+//                           src={media[(startIndex + i) % media.length].src}
+//                           alt={media[(startIndex + i) % media.length].alt}
+//                         />
+//                       ) : (
+//                         <Image
+//                           src={media[(startIndex + i) % media.length].src}
+//                           alt={media[(startIndex + i) % media.length].alt}
+//                           width={460}
+//                           height={240}
+//                           className="w-full h-full object-cover"
+//                           loading="lazy"
+//                         />
+//                       )}
+//                     </div>
+//                   ))}
+//                 </div>
+//               </React.Fragment>
+//             );
+//           })}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// // LazyVideo component
+// const LazyVideo = ({ src, alt }: { src: string; alt: string }) => {
+//   const videoRef = useRef<HTMLVideoElement>(null);
+
+//   useEffect(() => {
+//     const observer = new IntersectionObserver(
+//       ([entry]) => {
+//         if (videoRef.current) {
+//           entry.isIntersecting ? videoRef.current.play() : videoRef.current.pause();
+//         }
+//       },
+//       { threshold: 0.5 }
+//     );
+
+//     if (videoRef.current) observer.observe(videoRef.current);
+//     return () => observer.disconnect();
+//   }, []);
+
+//   return (
+//     <video
+//       ref={videoRef}
+//       src={src}
+//       muted
+//       loop
+//       playsInline
+//       className="w-full h-full object-cover shadow-md"
+//       aria-label={alt}
+//     />
+//   );
+// };
+
+
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 
 interface MediaItem {
@@ -556,10 +735,10 @@ export default function InfiniteScrollGallery() {
   const media: MediaItem[] = [
     { id: 1, src: "/videos/orange.mp4", alt: "Elderly person with sunglasses", type: "video" },
     { id: 2, src: "/images/Social.jpg", alt: "Person wearing a smartwatch", type: "image" },
-    { id: 3, src: "/images/Social.jpg", alt: "Person using a tablet", type: "image" },
+    { id: 3, src: "/images/Social1.jpg", alt: "Person using a tablet", type: "image" },
     { id: 4, src: "/videos/x4fa4f3ce9_large.mp4", alt: "Video call on a phone", type: "video" },
-    { id: 5, src: "/images/Social.jpg", alt: "Two people with phones", type: "image" },
-    { id: 6, src: "/images/Social.jpg", alt: "Person with headphones", type: "image" },
+    { id: 5, src: "/images/Social2.jpg", alt: "Two people with phones", type: "image" },
+    { id: 6, src: "/images/Social3.jpg", alt: "Person with headphones", type: "image" },
   ];
 
   // Duplicate once for seamless scroll
@@ -690,12 +869,20 @@ export default function InfiniteScrollGallery() {
 // LazyVideo component
 const LazyVideo = ({ src, alt }: { src: string; alt: string }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (videoRef.current) {
-          entry.isIntersecting ? videoRef.current.play() : videoRef.current.pause();
+          if (entry.isIntersecting && !isPlaying) {
+            videoRef.current.play().then(() => setIsPlaying(true)).catch((error) => {
+              console.error("Error playing video:", error);
+            });
+          } else if (!entry.isIntersecting && isPlaying) {
+            videoRef.current.pause();
+            setIsPlaying(false);
+          }
         }
       },
       { threshold: 0.5 }
@@ -703,7 +890,7 @@ const LazyVideo = ({ src, alt }: { src: string; alt: string }) => {
 
     if (videoRef.current) observer.observe(videoRef.current);
     return () => observer.disconnect();
-  }, []);
+  }, [isPlaying]);
 
   return (
     <video
@@ -712,6 +899,7 @@ const LazyVideo = ({ src, alt }: { src: string; alt: string }) => {
       muted
       loop
       playsInline
+      preload="metadata"
       className="w-full h-full object-cover shadow-md"
       aria-label={alt}
     />

@@ -278,7 +278,7 @@ export default function ProductCarousel() {
       .replace(/(^-|-$)/g, "");
 
   return (
-    <section className="w-full py-20 relative overflow-hidden">
+    <section className="w-full pt-20 relative overflow-hidden">
       {/* Header */}
       <div className="px-4 lg:px-6 xl:px-32 mb-8">
         <h2 className="text-4xl sm:text-5xl font-semibold">
@@ -308,9 +308,9 @@ export default function ProductCarousel() {
             centeredSlides={false}
           >
             {products.map((product) => (
-              <SwiperSlide key={product.id}>
+              <SwiperSlide key={product.id} className="pt-2 pb-10">
                 <Link href={`/product/${generateSlug(product.name)}`}>
-                  <div className="relative rounded-xl overflow-hidden aspect-[4/5] bg-white shadow-sm cursor-pointer flex flex-col justify-between">
+                  <div className="relative rounded-xl overflow-hidden aspect-[4/5] bg-white shadow-sm cursor-pointer flex flex-col justify-between transition-transform duration-300 hover:scale-[1.01] hover:shadow-xl">
                     <div className="p-4 sm:p-6">
                       <h3 className="text-xl sm:text-2xl font-semibold text-gray-900">
                         {product.name}
