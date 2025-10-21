@@ -1279,9 +1279,7 @@ export default function ProductPage() {
 
   return (
     <div className="px-4 lg:px-6 xl:px-32 pt-20">
-      <h1 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-10 text-center">
-        Have Questions? Contact Us!
-      </h1>
+     
       <h1 className="text-3xl font-bold mb-10 text-center">{item.name}</h1>
 
       <p className="text-center text-lg md:text-xl text-gray-600 mb-10 max-w-5xl mx-auto">
